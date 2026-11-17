@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794956613.962693,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT AVG(days_past_due) AS avg_days_past_due FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956613.9629593,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT AVG(days_past_due) AS avg_days_past_due FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956631.8658473,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956631.8661172,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956649.1380284,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956649.1382115,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

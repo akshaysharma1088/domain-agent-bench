@@ -1,0 +1,100 @@
+[
+ {
+  "ts": 1794956504.3397646,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"ask\",\n  \"domain\": \"originations\",\n  \"request_type\": \"select_ids\",\n  \"question\": \"How many auto loans came from applications submitted through the broker channel?\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956504.3397803,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "How many auto loans came from applications submitted through the broker channel?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956530.8143408,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "```json\n{\n  \"query\": \"SELECT COUNT(app_id) FROM orig_applications WHERE product = 'auto' AND channel = 'B' AND status IN ('SUBMITTED', 'IN_REVIEW', 'APPROVED')\",\n  \"note\": \"This query counts the number of auto loans that were submitted through the broker channel and are still in the ACTIVE APPLICATION status.\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956530.814601,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) FROM orig_applications WHERE product = 'auto' AND channel = 'B' AND status IN ('SUBMITTED', 'IN_REVIEW', 'APPROVED')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956542.5076818,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"sql\",\n  \"query\": \"SELECT COUNT(app_id) AS auto_loans_from_broker FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956542.5078783,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) AS auto_loans_from_broker FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956553.016149,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"submit\",\n  \"query\": \"SELECT COUNT(app_id) AS auto_loans_from_broker FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956553.0162747,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) AS auto_loans_from_broker FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

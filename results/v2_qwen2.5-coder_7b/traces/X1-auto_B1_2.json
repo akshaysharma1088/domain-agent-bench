@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956574.5853088,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications AS oa JOIN svc_loans AS sl ON oa.app_id = sl.app_id WHERE oa.channel = 'B' AND sl.product = 'auto';\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956574.5855536,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications AS oa JOIN svc_loans AS sl ON oa.app_id = sl.app_id WHERE oa.channel = 'B' AND sl.product = 'auto';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956586.0122402,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM orig_applications AS oa JOIN svc_loans AS sl ON oa.app_id = sl.app_id WHERE oa.channel = 'B' AND sl.product = 'auto';\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956586.0124052,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications AS oa JOIN svc_loans AS sl ON oa.app_id = sl.app_id WHERE oa.channel = 'B' AND sl.product = 'auto';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

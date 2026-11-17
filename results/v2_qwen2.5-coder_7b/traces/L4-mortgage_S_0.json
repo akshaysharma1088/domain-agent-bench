@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956558.9691994,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"sql\",\n  \"query\": \"SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE product = 'mortgage' AND status_cd IN ('C', 'D', 'F')\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956558.9695206,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE product = 'mortgage' AND status_cd IN ('C', 'D', 'F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956574.1993587,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"submit\",\n  \"query\": \"SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE product = 'mortgage' AND status_cd IN ('C', 'D', 'F')\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956574.1995769,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE product = 'mortgage' AND status_cd IN ('C', 'D', 'F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]
