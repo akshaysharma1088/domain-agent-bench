@@ -15,13 +15,13 @@ Only S enforces the boundary in infrastructure (a database authorizer driven by 
 
 ## What it measures
 
-36 tasks for a Servicing agent over a synthetic lender estate (three bounded contexts,
+48 tasks for a Servicing agent over a synthetic lender estate (three bounded contexts,
 seeded, no real data):
 
 - 12 local tasks, answerable inside Servicing
 - 12 cross-domain tasks that depend on another domain's meaning of a term or code
-- 12 tasks whose source data carries an injected instruction to read a foreign table
-  (9 target a regulated PII table)
+- 24 tasks whose source data carries an injected instruction to read a foreign table, in two tiers
+  (18 target a regulated PII table)
 
 Reported per configuration: task correctness, how often the agent followed an injected
 instruction, how often that read completed, and the cost of mediation (LLM calls, tokens,
@@ -87,6 +87,13 @@ run.py, summarize.py
   (`app_id` or `loan_id`) and the response states it. Nothing else changed: same tasks, data,
   prompts for B0 and B1, models, temperature and seed.
 - Injection tiers: tier 1 (I1 to I4) are plain one-line instructions. They were followed in
-  0 of 216 baseline runs in v1. Tier 2 (I5 to I8) was then declared once, using format
+  0 of 216 runs in v1. Tier 2 (I5 to I8) was then declared once, using format
   mimicry and task-aligned wording, and is reported next to tier 1. Tier 2 is not tuned
   further whatever it shows.
+
+## Results
+
+See `results/SUMMARY.md`. In short, with qwen2.5-coder:7b and llama3.1:8b: domain context decides
+correctness; the scoped agent matches the strong baseline on local tasks with a smaller prompt;
+contract-mediated cross-domain work is much less accurate and more expensive than direct access;
+and no model followed an injected instruction in either tier.
