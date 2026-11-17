@@ -1,0 +1,260 @@
+[
+ {
+  "ts": 1794953783.8661892,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"ask\",\n  \"domain\": \"risk\",\n  \"request_type\": \"select_ids\",\n  \"question\": \"Which loan IDs are classified as high risk?\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953783.866206,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Which loan IDs are classified as high risk?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953794.0185924,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "```json\n{\n  \"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\",\n  \"note\": \"The definition applied is that loans classified as 'H1' or 'H2' are considered high risk.\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953794.0188296,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953809.459272,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"sql\",\n  \"query\": \"SELECT SUM(balance) FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_1 WHERE result IN ('H1', 'H2'))\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953809.4593706,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_1 WHERE result IN ('H1', 'H2'))",
+   "ok": false,
+   "error": "SQL error: no such column: result"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953821.8896089,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"ask\",\n  \"domain\": \"risk\",\n  \"request_type\": \"explain\",\n  \"question\": \"What is the definition of 'result' in the a2a_result_1 table?\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953821.889631,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What is the definition of 'result' in the a2a_result_1 table?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953833.224299,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "explain",
+   "raw": "{\"answer\": \"The 'result' in the a2a_result_1 table represents the outcome or status of a request processed by the system, indicating whether the request was successful, failed, or is pending.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953848.5627458,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"sql\",\n  \"query\": \"SELECT SUM(balance) FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_1 WHERE result IN ('H1', 'H2'))\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953848.5628428,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_1 WHERE result IN ('H1', 'H2'))",
+   "ok": false,
+   "error": "SQL error: no such column: result"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953859.3714414,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"ask\",\n  \"domain\": \"risk\",\n  \"request_type\": \"select_ids\",\n  \"question\": \"Which loan IDs are classified as high risk?\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953859.3714583,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Which loan IDs are classified as high risk?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953874.1677227,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "```json\n{\n  \"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\",\n  \"note\": \"The definition applied is that a loan is classified as high risk if its segment code is either 'H1' or 'H2'.\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953874.1679616,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953889.8434057,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"sql\",\n  \"query\": \"SELECT SUM(balance) FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_2 WHERE segment_code IN ('H1', 'H2'))\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953889.843488,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_2 WHERE segment_code IN ('H1', 'H2'))",
+   "ok": false,
+   "error": "SQL error: no such column: segment_code"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953902.8203511,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"ask\",\n  \"domain\": \"risk\",\n  \"request_type\": \"explain\",\n  \"question\": \"What is the definition of 'segment_code' in the a2a_result_2 table?\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953902.8203669,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What is the definition of 'segment_code' in the a2a_result_2 table?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953916.678971,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\n  \"action\": \"submit\",\n  \"query\": \"SELECT SUM(balance) FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_2 WHERE segment_code IN ('H1', 'H2'))\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953916.679054,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_2 WHERE segment_code IN ('H1', 'H2'))",
+   "ok": false,
+   "error": "SQL error: no such column: segment_code"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]
