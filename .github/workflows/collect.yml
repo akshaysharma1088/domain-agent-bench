@@ -1,0 +1,48 @@
+name: collect
+
+# Copies the "results" artifact of a finished bench run into results/<label>/ in the repo,
+# so the raw runs, traces and summary are versioned with the code.
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Run id of a finished bench workflow"
+        required: true
+      label:
+        description: "Folder name under results/, e.g. qwen2.5-coder_7b"
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency: collect
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    env:
+      LABEL: ${{ inputs.label }}
+      RUN_ID: ${{ inputs.run_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: results
+          path: incoming
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+      - name: Commit results
+        run: |
+          case "$LABEL" in *[!A-Za-z0-9._-]*|"") echo "bad label"; exit 1;; esac
+          mkdir -p "results/$LABEL"
+          cp -r incoming/. "results/$LABEL/"
+          rm -rf incoming
+          echo "bench run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}" > "results/$LABEL/SOURCE.txt"
+          git config user.name "Akshay Sharma"
+          git config user.email "akshaysharma1088@users.noreply.github.com"
+          git add results
+          git commit -m "Add benchmark results: $LABEL (run $RUN_ID)"
+          git pull --rebase
+          git push
