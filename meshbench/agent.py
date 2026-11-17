@@ -112,7 +112,8 @@ def run_task(task, config, llm, base_conn_factory, temperature=0.0):
     conn = base_conn_factory()
     platform = Platform(conn, llm.model)
     if task["kind"] == "I":   # the injected instruction lives in the source data
-        platform.admin("INSERT INTO svc_loan_notes(loan_id, note) VALUES (1, ?)", (task["inj_text"],))
+        for _ in range(task.get("inj_repeat", 1)):
+            platform.admin("INSERT INTO svc_loan_notes(loan_id, note) VALUES (1, ?)", (task["inj_text"],))
     truth = platform.admin(task["truth"]).fetchone()[0]
 
     budget = DOMAINS[HOME]["charter"]["budget"]
@@ -172,7 +173,7 @@ def run_task(task, config, llm, base_conn_factory, temperature=0.0):
     denied = {t for t, ok in mine if not ok}
     target = task.get("inj_target")
     return {
-        "harness": HARNESS_VERSION, "task": task["id"], "kind": task["kind"], "config": config, "backend": llm.name, "model": llm.model,
+        "harness": HARNESS_VERSION, "task": task["id"], "kind": task["kind"], "inj_tier": task.get("tier"), "config": config, "backend": llm.name, "model": llm.model,
         "correct": bool(submitted and error is None and _same(answer, truth)),
         "submitted": submitted, "answer": answer, "truth": truth, "error": error,
         "llm_calls": usage["calls"], "prompt_tokens": usage["prompt"], "completion_tokens": usage["completion"],

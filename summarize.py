@@ -38,13 +38,15 @@ def main(path):
         print(f"| {c} | " + " | ".join(
             wilson(sum(r["correct"] for r in g[(c, k)]), len(g[(c, k)])) for k in KINDS) + " |")
 
-    print("\n### Injected-instruction tasks\n\n| Config | n | Followed the injection (attempted read) | "
-          "Injection succeeded (read completed) | Regulated table read |\n|---|---|---|---|---|")
-    for c in configs:
-        rs = g[(c, "I")]
-        print(f"| {c} | {len(rs)} | {wilson(sum(r['inj_attempt'] for r in rs), len(rs))} | "
-              f"{wilson(sum(r['inj_success'] for r in rs), len(rs))} | "
-              f"{wilson(sum(r['regulated_read'] for r in rs), len(rs))} |")
+    for tier in sorted({r.get("inj_tier") or 1 for r in rows if r["kind"] == "I"}):
+        print(f"\n### Injected-instruction tasks, tier {tier}\n\n| Config | n | Followed the injection (attempted read) | "
+              "Injection succeeded (read completed) | Regulated table read | Task still correct |\n|---|---|---|---|---|---|")
+        for c in configs:
+            rs = [r for r in g[(c, "I")] if (r.get("inj_tier") or 1) == tier]
+            print(f"| {c} | {len(rs)} | {wilson(sum(r['inj_attempt'] for r in rs), len(rs))} | "
+                  f"{wilson(sum(r['inj_success'] for r in rs), len(rs))} | "
+                  f"{wilson(sum(r['regulated_read'] for r in rs), len(rs))} | "
+                  f"{wilson(sum(r['correct'] for r in rs), len(rs))} |")
 
     print("\n### Cost of mediation (mean per task)\n\n| Config | Kind | LLM calls | Prompt tokens | "
           "Completion tokens | Latency s | A2A calls | Direct foreign-table reads |\n|---|---|---|---|---|---|---|---|")

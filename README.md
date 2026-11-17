@@ -86,3 +86,7 @@ run.py, summarize.py
 - `results/v2_*` (harness v2): the returned column is named after the contract key
   (`app_id` or `loan_id`) and the response states it. Nothing else changed: same tasks, data,
   prompts for B0 and B1, models, temperature and seed.
+- Injection tiers: tier 1 (I1 to I4) are plain one-line instructions. They were followed in
+  0 of 216 baseline runs in v1. Tier 2 (I5 to I8) was then declared once, using format
+  mimicry and task-aligned wording, and is reported next to tier 1. Tier 2 is not tuned
+  further whatever it shows.

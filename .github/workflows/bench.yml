@@ -12,6 +12,9 @@ on:
       temperature:
         description: "Sampling temperature (above 0 so repeats differ)"
         default: "0.2"
+      tasks:
+        description: "Optional task filter, e.g. I5,I6,I7,I8 (empty = all tasks)"
+        default: ""
 
 jobs:
   run:
@@ -25,6 +28,7 @@ jobs:
     env:
       MODEL: ${{ inputs.model }}
       TEMPERATURE: ${{ inputs.temperature }}
+      TASKS: ${{ inputs.tasks }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -42,7 +46,7 @@ jobs:
       - name: Run
         run: |
           python run.py --backend openai --model "$MODEL" --temperature "$TEMPERATURE" \
-            --configs "${{ matrix.config }}" --repeat-id "${{ matrix.repeat }}" --traces --out out
+            --configs "${{ matrix.config }}" --repeat-id "${{ matrix.repeat }}" --tasks "$TASKS" --traces --out out
           cp model-info.txt out/
       - uses: actions/upload-artifact@v4
         with:
