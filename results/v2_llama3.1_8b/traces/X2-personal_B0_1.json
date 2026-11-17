@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956888.6716354,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND segment = 'H1' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')\" }"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956888.6720133,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND segment = 'H1' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956902.0793667,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND segment = 'H1' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')\" }"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956902.0796762,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND segment = 'H1' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

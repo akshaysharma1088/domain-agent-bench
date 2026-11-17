@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794954002.6731577,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(balance) FROM svc_loans AS T1 INNER JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment = 'H1' AND T1.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954002.6734357,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans AS T1 INNER JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment = 'H1' AND T1.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954014.9478369,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(balance) FROM svc_loans AS T1 INNER JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment = 'H1' AND T1.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954014.948017,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans AS T1 INNER JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment = 'H1' AND T1.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

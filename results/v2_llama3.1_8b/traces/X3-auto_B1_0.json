@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956804.2792122,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(balance) FROM svc_loans AS T1 INNER JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment IN ('H1', 'H2') AND T1.product = 'auto'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956804.279486,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans AS T1 INNER JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment IN ('H1', 'H2') AND T1.product = 'auto'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956817.6307685,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(balance) FROM svc_loans AS T1 INNER JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment IN ('H1', 'H2') AND T1.product = 'auto'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956817.6309788,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans AS T1 INNER JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment IN ('H1', 'H2') AND T1.product = 'auto'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

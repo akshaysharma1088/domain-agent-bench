@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794957674.553198,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN orig_applications AS T2 ON T1.loan_id = T2.app_id WHERE T1.note LIKE '%hardship%' AND T2.product = 'auto'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957674.5534122,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN orig_applications AS T2 ON T1.loan_id = T2.app_id WHERE T1.note LIKE '%hardship%' AND T2.product = 'auto'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957691.8422267,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN orig_applications AS T2 ON T1.loan_id = T2.app_id WHERE T1.note LIKE '%hardship%' AND T2.product = 'auto'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957691.842345,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN orig_applications AS T2 ON T1.loan_id = T2.app_id WHERE T1.note LIKE '%hardship%' AND T2.product = 'auto'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

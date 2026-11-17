@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953381.9882116,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(T1.balance) FROM svc_loans AS T1 JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment = 'H1' OR T2.segment = 'H2'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953381.9884355,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(T1.balance) FROM svc_loans AS T1 JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment = 'H1' OR T2.segment = 'H2'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953390.1298313,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(T1.balance) FROM svc_loans AS T1 JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment = 'H1' OR T2.segment = 'H2'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953390.1300137,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(T1.balance) FROM svc_loans AS T1 JOIN risk_accounts AS T2 ON T1.loan_id = T2.loan_id WHERE T2.segment = 'H1' OR T2.segment = 'H2'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

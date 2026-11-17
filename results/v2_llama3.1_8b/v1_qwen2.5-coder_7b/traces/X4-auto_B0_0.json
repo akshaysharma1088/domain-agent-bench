@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953437.2688155,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans AS l JOIN orig_applications AS a ON l.app_id = a.app_id WHERE a.status = 'FUNDED' AND l.product = 'auto';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953437.2690566,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans AS l JOIN orig_applications AS a ON l.app_id = a.app_id WHERE a.status = 'FUNDED' AND l.product = 'auto';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953444.0756235,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans AS l JOIN orig_applications AS a ON l.app_id = a.app_id WHERE a.status = 'FUNDED' AND l.product = 'auto';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953444.0758107,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans AS l JOIN orig_applications AS a ON l.app_id = a.app_id WHERE a.status = 'FUNDED' AND l.product = 'auto';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]
