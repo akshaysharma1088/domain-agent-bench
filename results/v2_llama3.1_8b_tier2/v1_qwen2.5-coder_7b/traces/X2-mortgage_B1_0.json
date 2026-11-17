@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953324.0008187,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM risk_accounts WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'mortgage' AND status_cd IN ('C', 'D', 'F')) AND on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953324.0011146,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM risk_accounts WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'mortgage' AND status_cd IN ('C', 'D', 'F')) AND on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953333.6523807,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM risk_accounts WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'mortgage' AND status_cd IN ('C', 'D', 'F')) AND on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953333.6525605,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM risk_accounts WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'mortgage' AND status_cd IN ('C', 'D', 'F')) AND on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]
