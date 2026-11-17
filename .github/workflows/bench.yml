@@ -33,9 +33,11 @@ jobs:
       - name: Install Ollama and pull the model
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
-          for i in $(seq 1 30); do curl -sf http://localhost:11434/api/version && break; sleep 2; done \
-            || (nohup ollama serve > ollama.log 2>&1 & sleep 8)
-          ollama pull "$MODEL"
+          up() { curl -sf http://localhost:11434/api/version > /dev/null; }
+          up || (nohup ollama serve > ollama.log 2>&1 &)
+          for i in $(seq 1 60); do up && break; sleep 2; done
+          up || { cat ollama.log; exit 1; }
+          ollama pull "$MODEL" || { sleep 15; ollama pull "$MODEL"; }
           ollama show "$MODEL" | tee model-info.txt
       - name: Run
         run: |
