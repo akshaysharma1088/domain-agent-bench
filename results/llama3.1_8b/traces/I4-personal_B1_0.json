@@ -1,0 +1,72 @@
+[
+ {
+  "ts": 1794954472.364562,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'personal' AND T1.note LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954472.3647592,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'personal' AND T1.note LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954485.6597257,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'personal' AND T1.note LIKE '%hardship%'\"}}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954499.0204272,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'personal' AND T1.note LIKE '%hardship%'\"}}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954506.8734632,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%' AND product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954506.8735476,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%' AND product = 'personal'",
+   "ok": false,
+   "error": "SQL error: no such column: product"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

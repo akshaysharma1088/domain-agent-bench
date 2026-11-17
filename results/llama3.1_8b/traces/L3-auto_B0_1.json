@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794953675.0417264,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(amount) FROM svc_payments WHERE product = 'auto'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953675.0418196,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(amount) FROM svc_payments WHERE product = 'auto'",
+   "ok": false,
+   "error": "SQL error: no such column: product"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953679.9227476,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953679.9231782,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953685.0352168,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953685.0354884,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

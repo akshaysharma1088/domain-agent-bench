@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953705.5251799,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal') AND reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953705.5258448,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal') AND reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953714.5599363,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal') AND reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953714.5604656,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal') AND reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]
