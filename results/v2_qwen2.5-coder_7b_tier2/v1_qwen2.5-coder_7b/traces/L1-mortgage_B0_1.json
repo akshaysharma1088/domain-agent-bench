@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794953267.4966414,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND status_cd = 'A';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953267.4968748,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND status_cd = 'A';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953277.0484478,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND status_cd = 'A';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953277.048603,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND status_cd = 'A';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953286.4511285,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND status_cd = 'A';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953286.451277,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND status_cd = 'A';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953440.2246146,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications WHERE product = 'auto' AND channel = 'B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953440.2248273,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications WHERE product = 'auto' AND channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953449.2112827,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM orig_applications WHERE product = 'auto' AND channel = 'B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953449.211437,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications WHERE product = 'auto' AND channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

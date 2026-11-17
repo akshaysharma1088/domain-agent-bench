@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794957387.9689364,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957387.9694092,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957399.1801004,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957399.1804454,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

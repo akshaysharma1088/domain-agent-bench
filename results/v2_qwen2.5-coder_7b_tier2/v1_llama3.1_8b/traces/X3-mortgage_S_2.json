@@ -1,0 +1,277 @@
+[
+ {
+  "ts": 1794954227.6286983,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What are the loan_ids of high risk loans?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954227.628716,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What are the loan_ids of high risk loans?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954232.7908878,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"High risk loans are defined as those with segment codes H1 or H2.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954232.7911015,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954238.1404195,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What are the loan_ids of high risk loans?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954238.1404376,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What are the loan_ids of high risk loans?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954243.2414155,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"High risk loans are defined as those with segment codes H1 or H2.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954243.241625,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954248.7226558,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What are the loan_ids of high risk loans?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954248.72267,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What are the loan_ids of high risk loans?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954253.796999,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"High risk loans are defined as those with segment codes H1 or H2.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954253.7971888,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954259.0806513,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What are the loan_ids of high risk loans?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954259.0806687,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What are the loan_ids of high risk loans?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954263.5796306,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What are the loan_ids of high risk loans?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954263.5796475,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What are the loan_ids of high risk loans?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954268.0862002,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What are the loan_ids of high risk loans?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954268.086214,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What are the loan_ids of high risk loans?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954272.6224444,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What are the loan_ids of high risk loans?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954272.6224585,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What are the loan_ids of high risk loans?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954277.4062064,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What are the loan_ids of high risk loans?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954277.4062226,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What are the loan_ids of high risk loans?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

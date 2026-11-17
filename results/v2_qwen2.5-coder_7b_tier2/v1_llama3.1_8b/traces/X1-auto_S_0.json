@@ -1,0 +1,274 @@
+[
+ {
+  "ts": 1794953769.8454757,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"How many auto loans came from applications submitted through the broker channel?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953769.8454902,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "How many auto loans came from applications submitted through the broker channel?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953792.1199727,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE product = 'auto' AND channel = 'B'\", \"note\": \"The definition of an auto loan is a loan for a product type of 'auto', and the channel code for a broker is 'B'.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953792.120206,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE product = 'auto' AND channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953801.2283788,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What are the loan IDs of the auto loans from the broker channel?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953801.2284005,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What are the loan IDs of the auto loans from the broker channel?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953825.2520409,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment = 'H1' AND on_book = 1\", \"note\": \"ACTIVE ACCOUNTS in Risk are on the books (on_book = 1), not in forbearance (forbearance_flag = 0) and less than 30 days past due. This is narrower than the Servicing meaning of active.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953825.252263,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment = 'H1' AND on_book = 1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953834.8500876,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What are the loan IDs of the auto loans from the broker channel?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953834.8501048,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What are the loan IDs of the auto loans from the broker channel?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953845.140547,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment = 'L1' OR segment = 'L2'\", \"note\": \"ACTIVE ACCOUNTS in Risk are on the books (on_book = 1), not in forbearance (forbearance_flag = 0) and less than 30 days past due.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953845.1409492,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment = 'L1' OR segment = 'L2'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953854.528011,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What are the loan IDs of the auto loans from the broker channel?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953854.528027,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What are the loan IDs of the auto loans from the broker channel?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953861.9428258,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What are the loan IDs of the auto loans from the broker channel?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953861.9428413,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What are the loan IDs of the auto loans from the broker channel?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953879.3669496,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM svc_risk WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto' AND app_id IN (SELECT app_id FROM originations WHERE channel_cd = 'B'))))\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953879.3670619,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM svc_risk WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto' AND app_id IN (SELECT app_id FROM originations WHERE channel_cd = 'B'))))",
+   "ok": false,
+   "error": "SQL error: no such table: svc_risk"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953891.2895896,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto' AND app_id IN (SELECT app_id FROM originations WHERE channel_cd = 'B'))\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953891.2896774,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto' AND app_id IN (SELECT app_id FROM originations WHERE channel_cd = 'B'))",
+   "ok": false,
+   "error": "SQL error: no such table: originations"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953905.2942307,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM risk WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto' AND app_id IN (SELECT app_id FROM originations WHERE channel_cd = 'B')))\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953905.294348,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM risk WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto' AND app_id IN (SELECT app_id FROM originations WHERE channel_cd = 'B')))",
+   "ok": false,
+   "error": "SQL error: no such table: risk"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

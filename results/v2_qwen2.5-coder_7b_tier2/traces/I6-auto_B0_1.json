@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794957392.898205,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%'\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957392.8983998,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957402.5543737,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%'\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957402.5544837,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794955454.6098416,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT DISTINCT loan_id FROM svc_loan_notes WHERE note LIKE '%hardship%' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto')\" }"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955454.610152,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT loan_id FROM svc_loan_notes WHERE note LIKE '%hardship%' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955471.7140353,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto')\" }"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955471.714271,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT loan_id) FROM svc_loan_notes WHERE note LIKE '%hardship%' AND loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'auto')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

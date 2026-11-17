@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794953688.446235,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(amount) FROM svc_payments WHERE product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953688.4463253,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(amount) FROM svc_payments WHERE product = 'personal'",
+   "ok": false,
+   "error": "SQL error: no such column: product"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953693.3896432,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953693.3900974,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953698.5756538,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953698.5759652,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(amount) FROM svc_payments WHERE loan_id IN (SELECT loan_id FROM svc_loans WHERE product = 'personal')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

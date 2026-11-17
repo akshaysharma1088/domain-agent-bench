@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953983.4526165,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM risk_accounts WHERE segment = 'H1')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953983.4528687,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM risk_accounts WHERE segment = 'H1')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953992.2033055,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM risk_accounts WHERE segment = 'H1')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953992.203493,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM risk_accounts WHERE segment = 'H1')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

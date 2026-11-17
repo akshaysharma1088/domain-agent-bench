@@ -1,0 +1,262 @@
+[
+ {
+  "ts": 1794954033.0432734,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"How many auto loans are active accounts under the Risk Analytics definition of active?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954033.0432873,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "How many auto loans are active accounts under the Risk Analytics definition of active?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954048.819168,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30 AND segment = 'L1' OR segment = 'L2'\", \"note\": \"Risk Analytics definition of active: on_book = 1, not in forbearance (forbearance_flag = 0), less than 30 days past due, and segment codes L1, L2 = low risk.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954048.81946,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30 AND segment = 'L1' OR segment = 'L2'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954058.2131748,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"How many auto loans are active accounts under the Risk Analytics definition of active?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954058.213193,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "How many auto loans are active accounts under the Risk Analytics definition of active?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954067.217096,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30 AND segment = 'L1' OR segment = 'L2'\", \"note\": \"Risk Analytics definition of active accounts\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954067.217386,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30 AND segment = 'L1' OR segment = 'L2'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954075.1391253,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"How many auto loans are active accounts under the Risk Analytics definition of active?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954075.1391406,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "How many auto loans are active accounts under the Risk Analytics definition of active?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954085.7537427,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "explain",
+   "raw": "{\n  \"answer\": \"To determine the number of active accounts under the Risk Analytics definition, we would filter the risk_accounts table for loan_id (auto loans) where on_book = 1, forbearance_flag = 0, and days_past_due < 30.\"\n}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954095.4439309,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What table contains the loan_id values that are active accounts under the Risk Analytics definition of active?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954095.4439442,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What table contains the loan_id values that are active accounts under the Risk Analytics definition of active?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954103.224375,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"What table contains the app_id values that are associated with auto loans?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954103.2243907,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "What table contains the app_id values that are associated with auto loans?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954111.6909955,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What table contains the loan_id values that are active accounts under the Risk Analytics definition of active?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954111.6910112,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What table contains the loan_id values that are active accounts under the Risk Analytics definition of active?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954119.6236649,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954119.6238837,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954127.3013744,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954127.30153,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

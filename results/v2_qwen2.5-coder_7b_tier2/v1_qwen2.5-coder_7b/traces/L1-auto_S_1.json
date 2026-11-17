@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953138.6471922,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT SUM(balance) FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953138.6474278,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953149.617262,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT SUM(balance) FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953149.6174061,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F');",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

@@ -1,0 +1,109 @@
+[
+ {
+  "ts": 1794953962.9255512,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953962.925826,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953972.0329704,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953972.0331647,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953980.7907608,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953980.791069,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953990.1408658,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"submit\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953999.2746139,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953999.274885,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]
