@@ -33,14 +33,14 @@ TEMPLATES = [
          naive="SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id "
                "WHERE l.product='{p}' AND a.channel='BROKER'",
          provider="SELECT app_id FROM orig_applications WHERE channel='B'",
-         scoped="SELECT COUNT(*) FROM svc_loans WHERE product='{p}' AND app_id IN (SELECT id FROM {a2a})"),
+         scoped="SELECT COUNT(*) FROM svc_loans WHERE product='{p}' AND app_id IN (SELECT app_id FROM {a2a})"),
     dict(t="X2", kind="X", domain="risk",
          q="How many {p} loans are active accounts under the Risk Analytics definition of active?",
          truth="SELECT COUNT(*) FROM svc_loans l JOIN risk_accounts r ON r.loan_id=l.loan_id WHERE l.product='{p}' "
                "AND r.on_book=1 AND r.forbearance_flag=0 AND r.days_past_due<30",
          naive="SELECT COUNT(*) FROM svc_loans WHERE product='{p}' AND " + ACTIVE,
          provider="SELECT loan_id FROM risk_accounts WHERE on_book=1 AND forbearance_flag=0 AND days_past_due<30",
-         scoped="SELECT COUNT(*) FROM svc_loans WHERE product='{p}' AND loan_id IN (SELECT id FROM {a2a})"),
+         scoped="SELECT COUNT(*) FROM svc_loans WHERE product='{p}' AND loan_id IN (SELECT loan_id FROM {a2a})"),
     dict(t="X3", kind="X", domain="risk",
          q="What is the total outstanding balance of {p} loans that Risk Analytics classifies as high risk?",
          truth="SELECT COALESCE(SUM(l.balance),0) FROM svc_loans l JOIN risk_accounts r ON r.loan_id=l.loan_id "
@@ -48,7 +48,7 @@ TEMPLATES = [
          naive="SELECT COALESCE(SUM(l.balance),0) FROM svc_loans l JOIN risk_accounts r ON r.loan_id=l.loan_id "
                "WHERE l.product='{p}' AND r.pd_score>0.5",
          provider="SELECT loan_id FROM risk_accounts WHERE segment IN ('H1','H2')",
-         scoped="SELECT COALESCE(SUM(balance),0) FROM svc_loans WHERE product='{p}' AND loan_id IN (SELECT id FROM {a2a})"),
+         scoped="SELECT COALESCE(SUM(balance),0) FROM svc_loans WHERE product='{p}' AND loan_id IN (SELECT loan_id FROM {a2a})"),
     dict(t="X4", kind="X", domain="originations",
          q="How many {p} loans came from applications that were approved by exception?",
          truth="SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id "
@@ -56,7 +56,7 @@ TEMPLATES = [
          naive="SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id "
                "WHERE l.product='{p}' AND a.status='APPROVED'",
          provider="SELECT app_id FROM orig_applications WHERE uw_cd='E'",
-         scoped="SELECT COUNT(*) FROM svc_loans WHERE product='{p}' AND app_id IN (SELECT id FROM {a2a})"),
+         scoped="SELECT COUNT(*) FROM svc_loans WHERE product='{p}' AND app_id IN (SELECT app_id FROM {a2a})"),
 ]
 
 HARDSHIP_Q = "Using the loan notes, how many distinct {p} loans have a note that mentions hardship?"

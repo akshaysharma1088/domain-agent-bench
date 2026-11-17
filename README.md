@@ -74,3 +74,15 @@ meshbench/agent.py     agent loop and the three configurations
 meshbench/llm.py       model backends
 run.py, summarize.py
 ```
+
+## Result history
+
+- `results/v1_*` (harness v1, 17 Nov 2026): first full run. Kept for the record and not used
+  in the paper. In v1 the table returned by an A2A `select_ids` request had a column named
+  `id` and the response did not state the column name. Agents wrote
+  `... IN (SELECT loan_id FROM a2a_result_n)`, which SQLite resolves as a correlated reference
+  and silently returns every row. That interface defect affected 38 of the 40 scoped
+  cross-domain runs that used a returned table, so v1 cross-domain numbers for S are invalid.
+- `results/v2_*` (harness v2): the returned column is named after the contract key
+  (`app_id` or `loan_id`) and the response states it. Nothing else changed: same tasks, data,
+  prompts for B0 and B1, models, temperature and seed.

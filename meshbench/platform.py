@@ -86,9 +86,10 @@ class Platform:
             return None, "provider query must return exactly one id column"
         self.a2a_tables += 1
         name = f"a2a_result_{self.a2a_tables}"
-        self.admin(f"CREATE TABLE {name}(id INTEGER)")
+        key = CONTRACTS[provider]["key"]   # the column carries the contract key name, not a generic "id"
+        self.admin(f"CREATE TABLE {name}({key} INTEGER)")
         self.conn.executemany(f"INSERT INTO {name} VALUES (?)", [(r[0],) for r in res["rows"]])
-        return name, len(res["rows"])
+        return (name, key), len(res["rows"])
 
 
 def broad_entitlements():
