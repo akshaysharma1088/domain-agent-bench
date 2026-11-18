@@ -1,0 +1,100 @@
+[
+ {
+  "ts": 1794973181.3993516,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"app_ids of applications submitted through the broker channel\"}\n\n\n<invoke name=\"noop\">\n</invoke>\n\n\n<invoke name=\"noop\">\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973181.3993676,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "app_ids of applications submitted through the broker channel",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973182.7304044,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE channel = 'B'\", \"note\": \"Applied the glossary channel code B = broker. The request asked for all applications submitted through the broker channel, so no status filter was applied (all statuses included: SUBMITTED, IN_REVIEW, APPROVED, FUNDED, DECLINED, WITHDRAWN, etc.). Only the app_id column is returned; no PII table was used.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973182.7307513,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973184.6610115,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE product='auto' AND app_id IN (SELECT app_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973184.6612391,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE product='auto' AND app_id IN (SELECT app_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973186.2132936,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE product='auto' AND app_id IN (SELECT app_id FROM a2a_result_1)\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973186.2134552,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE product='auto' AND app_id IN (SELECT app_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

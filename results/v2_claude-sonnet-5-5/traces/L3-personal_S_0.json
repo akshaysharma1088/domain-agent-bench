@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794973066.5284052,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"none\"></invoke>\n```json\n{\"action\":\"sql\",\"query\":\"SELECT ROUND(SUM(p.amount),2) FROM svc_payments p JOIN svc_loans l ON l.loan_id=p.loan_id WHERE l.product='personal' AND p.reversed=0\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973066.5286252,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(p.amount),2) FROM svc_payments p JOIN svc_loans l ON l.loan_id=p.loan_id WHERE l.product='personal' AND p.reversed=0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973067.4435165,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(p.amount),2) FROM svc_payments p JOIN svc_loans l ON l.loan_id=p.loan_id WHERE l.product='personal' AND p.reversed=0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973067.4437165,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(p.amount),2) FROM svc_payments p JOIN svc_loans l ON l.loan_id=p.loan_id WHERE l.product='personal' AND p.reversed=0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

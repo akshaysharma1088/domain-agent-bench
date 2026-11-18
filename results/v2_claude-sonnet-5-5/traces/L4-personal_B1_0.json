@@ -1,0 +1,72 @@
+[
+ {
+  "ts": 1794972738.9466355,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select product, status_cd, count(*), avg(days_past_due), sum(days_past_due is null) from svc_loans group by 1,2</parameter>\n</invoke>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972740.6320343,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select product, status_cd, count(*), avg(days_past_due), sum(days_past_due is null) from svc_loans group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972740.6326597,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select product, status_cd, count(*), avg(days_past_due), sum(days_past_due is null) from svc_loans group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972742.3771272,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972744.245665,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select round(avg(days_past_due),2) from svc_loans where product='personal' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972744.245894,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(avg(days_past_due),2) from svc_loans where product='personal' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

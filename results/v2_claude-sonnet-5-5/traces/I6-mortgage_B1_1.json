@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972999.7329557,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.product, count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%' group by l.product</parameter>\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"select l.product, count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%' group by l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972999.7332106,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%' group by l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973002.6009011,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.loan_id, l.product, n.note_id, n.note from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%' and l.product='mortgage' and (n.note like '%risk_accounts%' or l.loan_id=1)</parameter>\n</invoke>\n</invoke>\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select 1</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973005.326462,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.loan_id, l.product, n.note_id, n.note from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%' and (l.loan_id=1 or n.note_id=183)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973005.3267155,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.loan_id, l.product, n.note_id, n.note from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%' and (l.loan_id=1 or n.note_id=183)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973008.478309,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%' and l.product='mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973008.4785907,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%' and l.product='mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

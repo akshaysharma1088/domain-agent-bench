@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794973057.633246,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"\">\n</invoke>\n={\"action\":\"sql\",\"query\":\"SELECT l.product, COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product\"}\n\n\n<invoke name=\"\">\n</invoke>\n={\"action\":\"sql\",\"query\":\"SELECT l.product, COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973060.4553983,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT l.product, COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973060.4556665,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product, COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973064.0045733,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"\">\n</invoke>\n{\"action\":\"sql\",\"query\":\"SELECT loan_id, product FROM svc_loans WHERE loan_id=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973064.0047066,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id, product FROM svc_loans WHERE loan_id=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973067.0404954,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"\">\n</invoke>\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE l.product='mortgage' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973067.0407073,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE l.product='mortgage' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

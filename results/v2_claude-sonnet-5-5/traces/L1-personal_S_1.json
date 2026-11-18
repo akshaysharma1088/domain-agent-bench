@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794973106.6396933,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select sum(balance) from svc_loans where product='personal' and status_cd in ('C','D','F')\"}\n</br>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973106.6399572,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select sum(balance) from svc_loans where product='personal' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973110.2327437,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select sum(balance) from svc_loans where product='personal' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973110.2328706,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select sum(balance) from svc_loans where product='personal' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

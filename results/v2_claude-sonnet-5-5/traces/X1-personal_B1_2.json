@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972811.4969969,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:antml:"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972813.0497267,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.channel = 'B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972813.0499802,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972815.493718,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(l.product='personal' AND a.product='personal') AS both_personal, SUM(l.product='personal') AS loan_personal, SUM(a.product='personal') AS app_personal, SUM(a.status<>'FUNDED') AS nonfunded, COUNT(*) AS n FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE a.channel = 'B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972815.4940474,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(l.product='personal' AND a.product='personal') AS both_personal, SUM(l.product='personal') AS loan_personal, SUM(a.product='personal') AS app_personal, SUM(a.status<>'FUNDED') AS nonfunded, COUNT(*) AS n FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE a.channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972816.9149523,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.channel = 'B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972816.915125,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

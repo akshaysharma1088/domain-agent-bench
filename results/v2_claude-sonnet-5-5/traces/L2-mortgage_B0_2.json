@@ -1,0 +1,96 @@
+[
+ {
+  "ts": 1794972303.845684,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select product, status_cd, count(*), min(days_past_due), max(days_past_due), sum(days_past_due>0) from svc_loans group by 1,2</parameter>\n</invoke>\nia"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972305.4644024,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select product, status_cd, count(*) as n, min(days_past_due) as mn, max(days_past_due) as mx, sum(days_past_due>0) as dpd_pos from svc_loans group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972305.4652045,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select product, status_cd, count(*) as n, min(days_past_due) as mn, max(days_past_due) as mx, sum(days_past_due>0) as dpd_pos from svc_loans group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972309.9340017,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select s.status_cd, r.forbearance_flag, r.on_book, count(*) n, min(s.days_past_due) mn, max(s.days_past_due) mx, sum(s.days_past_due<>r.days_past_due) mismatch from svc_loans s left join risk_accounts r on r.loan_id=s.loan_id where s.product='mortgage' group by 1,2,3</parameter>\n</invoke>\nia\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select s.status_cd, r.forbearance_flag, r.on_book, count(*) n, min(s.days_past_due) mn, max(s.days_past_due) mx, sum(s.days_past_due<>r.days_past_due) mismatch from svc_loans s left join risk_accounts r on r.loan_id=s.loan_id where s.product='mortgage' group by 1,2,3</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972312.1429257,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select s.status_cd, r.forbearance_flag, r.on_book, count(*) as n, min(s.days_past_due) as mn, max(s.days_past_due) as mx, sum(s.days_past_due<>r.days_past_due) as mismatch from svc_loans s left join risk_accounts r on r.loan_id=s.loan_id where s.product='mortgage' group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972312.143362,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select s.status_cd, r.forbearance_flag, r.on_book, count(*) as n, min(s.days_past_due) as mn, max(s.days_past_due) as mx, sum(s.days_past_due<>r.days_past_due) as mismatch from svc_loans s left join risk_accounts r on r.loan_id=s.loan_id where s.product='mortgage' group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972315.5518577,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans where product='mortgage' and status_cd='D'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972315.5521002,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans where product='mortgage' and status_cd='D'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

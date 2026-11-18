@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972791.8841403,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.product, a.product, a.channel, count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id group by 1,2,3</parameter>\n</invoke>\n{\"action\":\"sql\",\"query\":\"select l.product, a.product, a.channel, count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972791.8848975,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, a.product, a.channel, count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972793.5960176,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='mortgage' and a.channel='B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972793.5962746,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='mortgage' and a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972734.7805893,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select product, status_cd, count(*), avg(days_past_due) from svc_loans group by 1,2</parameter>\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"select product, status_cd, count(*), avg(days_past_due) from svc_loans group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972734.7811286,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select product, status_cd, count(*), avg(days_past_due) from svc_loans group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972736.543824,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "Active in Servicing = status_cd in (C, D, F). Compute for auto.\n\n{\"action\":\"submit\",\"query\":\"select round(avg(days_past_due),2) from svc_loans where product='auto' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972736.5440714,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(avg(days_past_due),2) from svc_loans where product='auto' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

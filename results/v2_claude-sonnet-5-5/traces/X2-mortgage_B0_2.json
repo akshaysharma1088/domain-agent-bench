@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972425.6245015,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n</invoke>\n_text\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n</invoke>\n_text"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972427.0194187,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972427.0201902,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972429.279716,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product = 'mortgage' and r.on_book = 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972429.2800195,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product = 'mortgage' and r.on_book = 1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

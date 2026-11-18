@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972816.7983906,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">SELECT COUNT(*), COUNT(DISTINCT l.loan_id), SUM(a.product<>l.product), SUM(a.status<>'FUNDED') FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.uw_cd='E'</parameter>\n</invoke>\n_cd"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972818.189814,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*), COUNT(DISTINCT l.loan_id), SUM(a.product<>l.product), SUM(a.status<>'FUNDED') FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.uw_cd='E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972818.1900954,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*), COUNT(DISTINCT l.loan_id), SUM(a.product<>l.product), SUM(a.status<>'FUNDED') FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972819.1401875,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.uw_cd='E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972819.14036,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

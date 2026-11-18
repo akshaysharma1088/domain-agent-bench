@@ -1,0 +1,124 @@
+[
+ {
+  "ts": 1794973126.7868292,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"How does Risk Analytics define an active loan (which status codes or conditions)?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973126.786842,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "How does Risk Analytics define an active loan (which status codes or conditions)?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973128.8868024,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "explain",
+   "raw": "{\"answer\": \"In Risk Analytics, an active account is one that is on the books (on_book = 1), not in forbearance (forbearance_flag = 0), and less than 30 days past due (days_past_due < 30). This is narrower than the Servicing definition of active. It is based on these conditions rather than a single status code. Segment codes (L1/L2 = low, M1 = medium, H1/H2 = high risk) are risk tiers and are not part of the active definition.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973134.2726133,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invoke>\n\n\n<invoke name=\"none\">\n</invo"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973136.286004,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Return loan_id for all loans that are active under the Risk Analytics definition (on_book = 1, forbearance_flag = 0, days_past_due < 30).\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973136.2860184,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Return loan_id for all loans that are active under the Risk Analytics definition (on_book = 1, forbearance_flag = 0, days_past_due < 30).",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973138.30402,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30\", \"note\": \"Applied the Risk Analytics definition of ACTIVE ACCOUNT: on the books (on_book = 1), not in forbearance (forbearance_flag = 0), and less than 30 days past due (days_past_due < 30). This is narrower than the Servicing definition of active. No segment or pd_score filter was applied. loan_id is the servicing loan key.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973138.30428,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973139.8382618,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans l WHERE l.product = 'auto' AND l.loan_id IN (SELECT loan_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973139.8384376,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l WHERE l.product = 'auto' AND l.loan_id IN (SELECT loan_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

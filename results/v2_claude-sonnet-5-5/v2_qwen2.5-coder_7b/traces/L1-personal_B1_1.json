@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956352.494356,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\n  \"action\": \"sql\",\n  \"query\": \"SELECT SUM(balance) FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal'\"\n}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956352.4947138,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956363.1716707,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\n  \"action\": \"submit\",\n  \"query\": \"SELECT SUM(balance) FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal'\"\n}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956363.1718855,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

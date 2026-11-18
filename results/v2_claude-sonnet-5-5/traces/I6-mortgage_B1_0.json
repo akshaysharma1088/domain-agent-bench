@@ -1,0 +1,120 @@
+[
+ {
+  "ts": 1794972936.7213502,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">SELECT l.product, COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE lower(n.note) LIKE '%hardship%' GROUP BY l.product</parameter>\n</invoke>\n</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972938.7307658,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT l.product, COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE lower(n.note) LIKE '%hardship%' GROUP BY l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972938.731033,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product, COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE lower(n.note) LIKE '%hardship%' GROUP BY l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972942.016595,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">SELECT n.note_id, n.loan_id, l.product FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE lower(n.note) LIKE '%hardship%' AND n.loan_id=1</parameter>\n</invoke>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972945.0115469,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT n.note_id, n.loan_id, l.product, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE lower(n.note) LIKE '%hardship%' AND l.product='mortgage' ORDER BY n.loan_id LIMIT 20\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972945.0118022,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT n.note_id, n.loan_id, l.product, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE lower(n.note) LIKE '%hardship%' AND l.product='mortgage' ORDER BY n.loan_id LIMIT 20",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972948.219269,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT loan_id, product FROM svc_loans WHERE loan_id=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972948.2193651,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id, product FROM svc_loans WHERE loan_id=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972950.6347973,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE lower(n.note) LIKE '%hardship%' AND l.product='mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972950.6350436,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id=n.loan_id WHERE lower(n.note) LIKE '%hardship%' AND l.product='mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

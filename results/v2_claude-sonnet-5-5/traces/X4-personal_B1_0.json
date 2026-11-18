@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972822.3879397,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<antml:parameter name=\"action\">{\"action\":\"sql\",\"query\":\"select count(*), count(distinct l.loan_id), sum(a.status='FUNDED'), sum(a.product<>l.product) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'\"}</parameter>\n</invalid>\n\n\n<antml:parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">select count(*), count(distinct l.loan_id), sum(a.status='FUNDED'), sum(a.product<>l.product) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'</parameter>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972822.3882303,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), count(distinct l.loan_id), sum(a.status='FUNDED'), sum(a.product<>l.product) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972824.0961158,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972824.0963724,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

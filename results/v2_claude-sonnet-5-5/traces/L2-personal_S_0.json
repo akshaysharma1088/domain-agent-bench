@@ -1,0 +1,26 @@
+[
+ {
+  "ts": 1794973056.5074985,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke>submit</invoke>\n</invoke>\n```\n\nCorrection: reply must be JSON only.\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE product = 'personal' AND status_cd = 'D'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973056.5076027,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE product = 'personal' AND status_cd = 'D'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

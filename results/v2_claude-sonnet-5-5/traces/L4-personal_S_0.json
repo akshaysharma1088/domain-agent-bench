@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794973082.2687795,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select round(avg(days_past_due),2), count(*) from svc_loans where product='personal' and status_cd in ('C','D','F')\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973082.2690701,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(avg(days_past_due),2), count(*) from svc_loans where product='personal' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973084.6341965,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select round(avg(days_past_due),2) from svc_loans where product='personal' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973084.6344092,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(avg(days_past_due),2) from svc_loans where product='personal' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

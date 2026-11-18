@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794973138.5359,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select round(avg(days_past_due),2), count(*) from svc_loans where product='auto' and status_cd in ('C','D','F')\"}\n</br>\n\n\n{\"action\":\"submit\",\"query\":\"select round(avg(days_past_due),2) from svc_loans where product='auto' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973140.1002803,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select round(avg(days_past_due),2), count(*) from svc_loans where product='auto' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973140.100513,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(avg(days_past_due),2), count(*) from svc_loans where product='auto' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973141.5372658,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select round(avg(days_past_due),2) from svc_loans where product='auto' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973141.5374675,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(avg(days_past_due),2) from svc_loans where product='auto' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

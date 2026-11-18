@@ -1,0 +1,100 @@
+[
+ {
+  "ts": 1794973206.6697538,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"\">\n</invoke>\n{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"loan_ids of loans that Risk Analytics classifies as high risk\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973206.6697664,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "loan_ids of loans that Risk Analytics classifies as high risk",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973208.8646019,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"Applied the Risk Analytics segment mapping: H1 and H2 are high risk. The request asks only for high-risk loans, not active ones, so I did not filter on on_book, forbearance_flag, or days_past_due. The loan_id column is the servicing loan key.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973208.864756,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973211.1524293,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.product, count(*), sum(l.balance) from svc_loans l join a2a_result_1 r on r.loan_id=l.loan_id group by l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973211.1526566,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, count(*), sum(l.balance) from svc_loans l join a2a_result_1 r on r.loan_id=l.loan_id group by l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973214.5106575,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select sum(l.balance) from svc_loans l join a2a_result_1 r on r.loan_id=l.loan_id where l.product='mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973214.510831,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select sum(l.balance) from svc_loans l join a2a_result_1 r on r.loan_id=l.loan_id where l.product='mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972492.8385603,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">select uw_cd, status, count(*) from orig_applications group by 1,2</parameter>\n</invoke>\n\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select uw_cd, status, count(*) from orig_applications group by 1,2</parameter>\n</invoke>\n\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select uw_cd, status, count(*) from orig_applications group by 1,2</parameter>\n</invoke>\n\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select uw_cd, status, count(*) from orig_applications group by 1,2</parameter>\n</invoke>\n\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select uw_cd, status, count(*) from orig_applications group by 1,2</parameter>\n</invoke>\n\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select uw_cd, status, count(*) from orig_applications group by 1,2</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972494.5691366,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select uw_cd, status, count(*) from orig_applications group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972494.570146,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select uw_cd, status, count(*) from orig_applications group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972498.0247426,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<antml:parameter name=\"x\">\n</parameter>\n</antml:parameter>\n\n{\"action\":\"sql\",\"query\":\"select l.product, a.product, count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.uw_cd='E' group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972498.0251522,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, a.product, count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.uw_cd='E' group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972501.1541016,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(distinct l.loan_id) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.uw_cd='E' and l.product='personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972501.1543632,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct l.loan_id) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.uw_cd='E' and l.product='personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972872.0850394,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.segment in ('H1','H2') group by 1,2,3</parameter>\n</invoke>\n\t{\"action\":\"sql\",\"query\":\"...\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972872.0850894,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "...",
+   "ok": false,
+   "error": "SQL error: near \".\": syntax error"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972873.6416311,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.product, l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.segment in ('H1','H2') group by l.product, l.status_cd, r.on_book\"}\n```\n\n\n{\"action\":\"sql\",\"query\":\"select l.product, l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.segment in ('H1','H2') group by l.product, l.status_cd, r.on_book\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972874.719653,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.product, l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.segment in ('H1','H2') group by l.product, l.status_cd, r.on_book\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972874.7199419,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.segment in ('H1','H2') group by l.product, l.status_cd, r.on_book",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972877.624428,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' and r.segment in ('H1','H2')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972877.6246767,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' and r.segment in ('H1','H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

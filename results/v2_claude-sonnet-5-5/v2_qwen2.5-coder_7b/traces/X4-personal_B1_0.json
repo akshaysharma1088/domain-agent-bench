@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956643.5880606,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications JOIN svc_loans ON orig_applications.app_id = svc_loans.app_id WHERE orig_applications.product = 'personal' AND orig_applications.uw_cd = 'E' AND svc_loans.status_cd IN ('C', 'D', 'F');\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956643.5884888,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications JOIN svc_loans ON orig_applications.app_id = svc_loans.app_id WHERE orig_applications.product = 'personal' AND orig_applications.uw_cd = 'E' AND svc_loans.status_cd IN ('C', 'D', 'F');",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956653.6324003,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM orig_applications JOIN svc_loans ON orig_applications.app_id = svc_loans.app_id WHERE orig_applications.product = 'personal' AND orig_applications.uw_cd = 'E' AND svc_loans.status_cd IN ('C', 'D', 'F');\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956653.6327283,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications JOIN svc_loans ON orig_applications.app_id = svc_loans.app_id WHERE orig_applications.product = 'personal' AND orig_applications.uw_cd = 'E' AND svc_loans.status_cd IN ('C', 'D', 'F');",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

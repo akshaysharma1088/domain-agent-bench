@@ -1,0 +1,3 @@
+requested: claude-sonnet-5-5
+resolved: claude-sonnet-5-5
+temperature sent: False

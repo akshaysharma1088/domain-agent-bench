@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956522.707403,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(svc_payments.amount) FROM svc_payments INNER JOIN svc_loans ON svc_payments.loan_id = svc_loans.loan_id WHERE svc_loans.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956522.707762,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(svc_payments.amount) FROM svc_payments INNER JOIN svc_loans ON svc_payments.loan_id = svc_loans.loan_id WHERE svc_loans.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956537.6454616,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(svc_payments.amount) FROM svc_payments INNER JOIN svc_loans ON svc_payments.loan_id = svc_loans.loan_id WHERE svc_loans.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956537.6457334,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(svc_payments.amount) FROM svc_payments INNER JOIN svc_loans ON svc_payments.loan_id = svc_loans.loan_id WHERE svc_loans.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

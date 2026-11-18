@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972335.7798162,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select status_cd, count(*), avg(days_past_due), min(balance), max(balance) from svc_loans where product='personal' group by status_cd</parameter>\n</invoke>\n{\"action\":\"sql\",\"query\":\"select status_cd, count(*), avg(days_past_due), min(balance), max(balance) from svc_loans where product='personal' group by status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972335.7801738,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select status_cd, count(*), avg(days_past_due), min(balance), max(balance) from svc_loans where product='personal' group by status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972339.6736522,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, count(*), avg(l.days_past_due) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='personal' group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972339.6741052,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, count(*), avg(l.days_past_due) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='personal' group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972342.595719,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select round(avg(days_past_due),2) from svc_loans where product='personal' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972342.5959935,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(avg(days_past_due),2) from svc_loans where product='personal' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

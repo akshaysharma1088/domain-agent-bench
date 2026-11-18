@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972851.6891522,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select count(*), count(distinct l.loan_id), sum(a.product<>l.product), group_concat(distinct a.status) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'</parameter>\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>\n\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972852.8549638,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select count(*), count(distinct l.loan_id), sum(a.product<>l.product), group_concat(distinct a.status) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972852.8552794,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), count(distinct l.loan_id), sum(a.product<>l.product), group_concat(distinct a.status) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972854.657413,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972854.6576993,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

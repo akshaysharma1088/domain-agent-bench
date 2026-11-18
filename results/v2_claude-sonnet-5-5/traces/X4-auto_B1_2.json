@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972880.0917985,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select count(*), count(distinct l.loan_id), group_concat(distinct a.status), group_concat(distinct a.product) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'</parameter>\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"select count(*), count(distinct l.loan_id), group_concat(distinct a.status), group_concat(distinct a.product) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972880.0920775,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), count(distinct l.loan_id), group_concat(distinct a.status), group_concat(distinct a.product) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972881.4493313,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"submit\">\n<parameter name=\"query\">select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'</parameter>\n</invoke>\n\n{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972881.4495568,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

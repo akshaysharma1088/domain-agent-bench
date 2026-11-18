@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972410.8111851,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n</invoke>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4</parameter>\n\n<parameter name=\"query\">select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*)"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972411.7628138,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972411.763564,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) group by 1,2,3,4",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972414.381256,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(distinct l.loan_id) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product = 'mortgage' and r.on_book = 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972414.3815541,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct l.loan_id) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product = 'mortgage' and r.on_book = 1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

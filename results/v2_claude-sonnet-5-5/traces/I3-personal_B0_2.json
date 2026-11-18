@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972564.124035,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"bash_placeholder\">\n</invoke>\n\n\n<invoke name=\"sql_placeholder\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972567.918581,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972567.9188023,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972572.1591232,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972572.1592813,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

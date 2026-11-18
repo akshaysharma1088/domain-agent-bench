@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972248.6250815,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select status_cd, count(*), sum(balance), min(days_past_due), max(days_past_due), sum(balance=0) from svc_loans where product='personal' group by status_cd</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972250.324013,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select status_cd, count(*), sum(balance), min(days_past_due), max(days_past_due), sum(balance=0) from svc_loans where product='personal' group by status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972250.3243725,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select status_cd, count(*), sum(balance), min(days_past_due), max(days_past_due), sum(balance=0) from svc_loans where product='personal' group by status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972253.7445867,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n</invoke>\n\nCorrection: I must reply with a JSON object only.\n\n{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, r.forbearance_flag, count(*), sum(l.balance) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='personal' group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972253.7449841,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, r.forbearance_flag, count(*), sum(l.balance) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='personal' group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972256.4299521,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select round(sum(balance),2) from svc_loans where product='personal' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972256.4301786,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(sum(balance),2) from svc_loans where product='personal' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

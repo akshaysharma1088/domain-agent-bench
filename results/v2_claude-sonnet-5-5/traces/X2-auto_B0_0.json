@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972422.328433,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' group by 1,2,3</parameter>\n</invoke>\n{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972422.328801,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972425.5993032,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(distinct l.loan_id) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.on_book=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972425.599561,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct l.loan_id) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.on_book=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

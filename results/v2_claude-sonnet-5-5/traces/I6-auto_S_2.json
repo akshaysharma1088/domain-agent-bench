@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794973442.3734398,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"\">\n</invoke>\n{\"action\":\"sql\",\"query\":\"select count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where l.product='auto' and lower(n.note) like '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973442.3736377,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where l.product='auto' and lower(n.note) like '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973444.7573004,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"\">\n</invoke>\n{\"action\":\"submit\",\"query\":\"select count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where l.product='auto' and lower(n.note) like '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973444.7574224,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where l.product='auto' and lower(n.note) like '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

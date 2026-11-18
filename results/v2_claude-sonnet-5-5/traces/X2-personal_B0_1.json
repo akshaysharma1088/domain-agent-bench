@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972397.1535487,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) where l.product='personal' group by 1,2,3</parameter>\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) where l.product='personal' group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972397.1539202,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, r.forbearance_flag, count(*) from svc_loans l join risk_accounts r using(loan_id) where l.product='personal' group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972402.6273475,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select count(*), count(distinct l.loan_id), sum(r.loan_id is null) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972402.6277463,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), count(distinct l.loan_id), sum(r.loan_id is null) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972405.3851898,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='personal' and r.on_book=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972405.3854215,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='personal' and r.on_book=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

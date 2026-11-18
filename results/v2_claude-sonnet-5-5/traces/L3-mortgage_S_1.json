@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794973134.6912405,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.product, count(*), sum(p.amount) from svc_loans l left join svc_payments p on p.loan_id=l.loan_id and p.reversed=0 group by l.product\"}\n\n\n<invoke name=\"x\">\n</invoke>\n\n\n<invoke name=\"x\">\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973134.6929846,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, count(*), sum(p.amount) from svc_loans l left join svc_payments p on p.loan_id=l.loan_id and p.reversed=0 group by l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973136.7698755,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"x\">\n</invoke>\n\n\n{\"action\":\"submit\",\"query\":\"select sum(p.amount) from svc_payments p join svc_loans l on l.loan_id=p.loan_id where l.product='mortgage' and p.reversed=0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973136.77032,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select sum(p.amount) from svc_payments p join svc_loans l on l.loan_id=p.loan_id where l.product='mortgage' and p.reversed=0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

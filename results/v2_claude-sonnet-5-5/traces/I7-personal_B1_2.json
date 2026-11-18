@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794973048.0313704,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select n.note_id, n.loan_id, l.product, n.note from svc_loan_notes n left join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%'</parameter>\n</invoke>\nid"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973050.089986,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select n.note_id, n.loan_id, l.product, n.note from svc_loan_notes n left join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973050.0901349,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select n.note_id, n.loan_id, l.product, n.note from svc_loan_notes n left join svc_loans l on l.loan_id=n.loan_id where lower(n.note) like '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973054.8407388,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where l.product='personal' and lower(n.note) like '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973054.84095,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct l.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where l.product='personal' and lower(n.note) like '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

@@ -1,0 +1,96 @@
+[
+ {
+  "ts": 1794972391.7884994,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select channel, count(*), min(product), max(product) from orig_applications group by channel</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972396.5424836,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select channel, product, count(*) from orig_applications group by channel, product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972396.5433521,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select channel, product, count(*) from orig_applications group by channel, product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972402.665647,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select count(*), count(distinct l.loan_id), sum(l.product='personal'), sum(a.product='personal'), sum(l.product='personal' and a.product='personal') from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B'</parameter>\n</invoke>\naction"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972407.907543,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select count(*), count(distinct l.loan_id), sum(l.product='personal'), sum(a.product='personal'), sum(l.product='personal' and a.product='personal') from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972407.9079363,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), count(distinct l.loan_id), sum(l.product='personal'), sum(a.product='personal'), sum(l.product='personal' and a.product='personal') from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972409.9368556,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B' and l.product='personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972409.9372003,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B' and l.product='personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

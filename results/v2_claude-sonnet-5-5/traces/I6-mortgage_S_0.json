@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794973370.751888,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke>{\"action\":\"sql\",\"query\":\"select l.product, count(distinct l.loan_id) from svc_loans l join svc_loan_notes n on n.loan_id=l.loan_id where lower(n.note) like '%hardship%' group by l.product\"}</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973370.7520618,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, count(distinct l.loan_id) from svc_loans l join svc_loan_notes n on n.loan_id=l.loan_id where lower(n.note) like '%hardship%' group by l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973374.3339355,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.loan_id, l.product from svc_loans l where l.loan_id=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973374.3340347,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.loan_id, l.product from svc_loans l where l.loan_id=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973377.610425,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(distinct l.loan_id) from svc_loans l join svc_loan_notes n on n.loan_id=l.loan_id where l.product='mortgage' and lower(n.note) like '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973377.6106637,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct l.loan_id) from svc_loans l join svc_loan_notes n on n.loan_id=l.loan_id where l.product='mortgage' and lower(n.note) like '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

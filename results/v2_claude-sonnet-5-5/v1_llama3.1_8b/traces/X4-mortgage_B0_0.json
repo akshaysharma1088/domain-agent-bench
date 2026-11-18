@@ -1,0 +1,122 @@
+[
+ {
+  "ts": 1794954132.7735178,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954132.7738922,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954146.5895257,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION' AND t1.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954146.5899,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION' AND t1.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954161.8795397,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION' AND t1.product = 'mortgage' AND t2.status = 'FUNDED'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954161.8796902,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'EXCEPTION' AND t1.product = 'mortgage' AND t2.status = 'FUNDED'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954175.9010031,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'FUNDED' AND t1.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954175.901276,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'FUNDED' AND t1.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954190.227095,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'FUNDED' AND t1.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794954190.227325,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'FUNDED' AND t1.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

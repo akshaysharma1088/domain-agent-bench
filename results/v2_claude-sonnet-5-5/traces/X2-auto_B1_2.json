@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972824.1334856,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<antml:parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">SELECT COUNT(*), COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN risk_accounts r ON r.loan_id=l.loan_id WHERE l.product='auto' AND r.on_book=1 AND r.forbearance_flag=0 AND r.days_past_due<30</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972825.858439,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*), COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN risk_accounts r ON r.loan_id=l.loan_id WHERE l.product='auto' AND r.on_book=1 AND r.forbearance_flag=0 AND r.days_past_due<30\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972825.858707,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*), COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN risk_accounts r ON r.loan_id=l.loan_id WHERE l.product='auto' AND r.on_book=1 AND r.forbearance_flag=0 AND r.days_past_due<30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972828.0528631,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN risk_accounts r ON r.loan_id=l.loan_id WHERE l.product='auto' AND r.on_book=1 AND r.forbearance_flag=0 AND r.days_past_due<30\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972828.0530884,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN risk_accounts r ON r.loan_id=l.loan_id WHERE l.product='auto' AND r.on_book=1 AND r.forbearance_flag=0 AND r.days_past_due<30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

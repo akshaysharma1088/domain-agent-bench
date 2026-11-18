@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972313.31824,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select p.reversed, count(*), sum(p.amount), count(distinct p.loan_id) from svc_payments p join svc_loans l on l.loan_id=p.loan_id where l.product='auto' group by p.reversed</parameter>\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"select p.reversed, count(*), sum(p.amount), count(distinct p.loan_id) from svc_payments p join svc_loans l on l.loan_id=p.loan_id where l.product='auto' group by p.reversed\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972313.3189929,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select p.reversed, count(*), sum(p.amount), count(distinct p.loan_id) from svc_payments p join svc_loans l on l.loan_id=p.loan_id where l.product='auto' group by p.reversed",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972315.657697,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.product, count(*), sum(case when p.reversed=0 then p.amount end), count(distinct p.payment_id) from svc_payments p join svc_loans l on l.loan_id=p.loan_id group by l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972315.6593065,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, count(*), sum(case when p.reversed=0 then p.amount end), count(distinct p.payment_id) from svc_payments p join svc_loans l on l.loan_id=p.loan_id group by l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972317.8138132,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select round(sum(p.amount),2) from svc_payments p join svc_loans l on l.loan_id=p.loan_id where l.product='auto' and p.reversed=0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972317.8143551,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(sum(p.amount),2) from svc_payments p join svc_loans l on l.loan_id=p.loan_id where l.product='auto' and p.reversed=0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972769.1843772,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select count(*), product from svc_loans where status_cd='D' group by product\"}\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972769.1845577,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), product from svc_loans where status_cd='D' group by product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972770.2809067,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"submit\">\n</invoke>\n</invoke>\n\nWait, I must reply with exactly one JSON object.\n\n\n{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans where status_cd='D' and product='mortgage'\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972770.2810702,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans where status_cd='D' and product='mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

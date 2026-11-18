@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972772.889551,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<antml:action>sql</action>\n\n\n<antml:parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">select l.product, count(*), count(distinct l.loan_id), count(distinct r.loan_id) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30 group by l.product</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972774.783611,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.product, count(*), count(distinct l.loan_id) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30 group by l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972774.784068,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, count(*), count(distinct l.loan_id) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30 group by l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972777.2599506,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972777.260185,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

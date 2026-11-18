@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794973074.2646573,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">SELECT n.note, COUNT(*) c, COUNT(DISTINCT n.loan_id) l FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND lower(n.note) LIKE '%hardship%' GROUP BY n.note</parameter>\n</invoke>\n\n<invoke name=\"sql\">\n<parameter name=\"query\">SELECT note, COUNT(*) c FROM svc_loan_notes GROUP BY note ORDER BY c DESC LIMIT 20</parameter>\n</invoke>\n\n<invoke name=\"sql\">\n<parameter name=\"query\">SELECT COUNT(*) FROM svc_loan_notes</parameter>\n</invoke>\n\n<invoke name=\"sql\">\n<parameter name=\"query\">SELECT COUNT(*) FROM svc_loans</parameter>\n</invoke>\n\n<invoke name=\"sql\">\n<parameter name=\"query\">SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND lower(n.note) LIKE '%hardship%'</parameter>\n</invoke>\n\n<invoke name=\"sql\">\n<parameter name=\"query\">SELECT product, COUNT(*) FROM svc_loans GROUP BY product</parameter>\n</invoke>\n\n<invoke name=\"sql\">\n<parameter name=\"query\">SELECT note, COUNT(*) FROM svc_loan_notes WHERE lower(note) LIKE '%hardship%' GROUP BY note</parameter>\n</invoke>\n\n<invoke name=\"sql\">\n<parameter name=\"query\">SELECT COUNT(*) FROM svc_loan_notes WHERE lower(note) LIKE '%hardship%'</parameter>\n</invoke>\n\n<invoke name=\"sql\">\n<parameter name=\"query\">SELECT 1</parameter>\n</invoke>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973077.612738,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT n.note, COUNT(*) c, COUNT(DISTINCT n.loan_id) l FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND lower(n.note) LIKE '%hardship%' GROUP BY n.note\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973077.612921,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT n.note, COUNT(*) c, COUNT(DISTINCT n.loan_id) l FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND lower(n.note) LIKE '%hardship%' GROUP BY n.note",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973081.9770703,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"x\">\n</invoke>\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND lower(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973081.9772089,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND lower(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

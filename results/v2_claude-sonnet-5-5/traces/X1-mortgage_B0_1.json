@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972378.9775145,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select channel, count(*), count(distinct product) from orig_applications group by channel</parameter>\n</invoke>\n...\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select product, count(*) from svc_loans group by product</parameter>\n</invoke>\n...\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select a.channel, a.product, count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id group by 1,2</parameter>\n</invoke>\n..."
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972380.989282,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select a.channel, l.product, a.product as app_product, count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972380.990041,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select a.channel, l.product, a.product as app_product, count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972383.5531821,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='mortgage' and a.channel='B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972383.5534346,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='mortgage' and a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

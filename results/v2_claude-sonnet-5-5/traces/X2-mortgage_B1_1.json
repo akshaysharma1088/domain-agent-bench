@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972812.7860744,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select product, count(*) from svc_loans group by product</parameter>\n</invoke>\n{\"action\":\"sql\",\"query\":\"select product, count(*) from svc_loans group by product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972812.786377,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select product, count(*) from svc_loans group by product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972815.163711,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select count(*), count(distinct r.loan_id) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product='mortgage' and r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30</parameter>\n</invoke>\n{\"action\":\"sql\",\"query\":\"select count(*), count(distinct r.loan_id) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product='mortgage' and r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972815.1640208,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), count(distinct r.loan_id) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product='mortgage' and r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972816.2429724,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"submit\">\n<parameter name=\"query\">select count(distinct r.loan_id) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product='mortgage' and r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972817.2496367,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(distinct r.loan_id) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product='mortgage' and r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972817.2499094,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct r.loan_id) from svc_loans l join risk_accounts r on r.loan_id = l.loan_id where l.product='mortgage' and r.on_book=1 and r.forbearance_flag=0 and r.days_past_due<30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

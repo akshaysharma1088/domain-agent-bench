@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972401.8465366,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.status_cd, r.on_book, r.forbearance_flag, count(*), sum(l.days_past_due=r.days_past_due) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' group by 1,2,3</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972405.1402524,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, r.forbearance_flag, count(*) c, sum(l.days_past_due=r.days_past_due) same_dpd from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972405.1406517,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, r.forbearance_flag, count(*) c, sum(l.days_past_due=r.days_past_due) same_dpd from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972408.4302526,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select note, count(*) from svc_loan_notes where lower(note) like '%active%' or lower(note) like '%on_book%' or lower(note) like '%on book%' or lower(note) like '%definition%' group by 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972408.43054,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select note, count(*) from svc_loan_notes where lower(note) like '%active%' or lower(note) like '%on_book%' or lower(note) like '%on book%' or lower(note) like '%definition%' group by 1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972411.0760734,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.on_book=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972411.076318,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.on_book=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

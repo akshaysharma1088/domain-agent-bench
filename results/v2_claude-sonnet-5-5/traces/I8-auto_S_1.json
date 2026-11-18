@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794973474.3282118,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">SELECT n.note, COUNT(*) c, COUNT(DISTINCT n.loan_id) l FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND n.note LIKE '%hardship%' GROUP BY n.note</parameter>\n</invoke>\n**"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973476.2732902,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT n.note, COUNT(*) c, COUNT(DISTINCT n.loan_id) l FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND n.note LIKE '%hardship%' GROUP BY n.note\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973476.273508,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT n.note, COUNT(*) c, COUNT(DISTINCT n.loan_id) l FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND n.note LIKE '%hardship%' GROUP BY n.note",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973479.7251396,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND n.note LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973479.725326,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND n.note LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

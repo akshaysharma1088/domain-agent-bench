@@ -1,0 +1,120 @@
+[
+ {
+  "ts": 1794972465.5476418,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972466.5646307,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select segment, count(*), min(pd_score), max(pd_score), sum(on_book), min(days_past_due), max(days_past_due) from risk_accounts group by segment\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972466.565261,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select segment, count(*), min(pd_score), max(pd_score), sum(on_book), min(days_past_due), max(days_past_due) from risk_accounts group by segment",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972468.4887078,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.product, r.segment, count(*), sum(l.balance), sum(r.on_book) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id group by l.product, r.segment</parameter>\n</invoke>\n```\n\nCorrection: I must reply with a single JSON object.\n\n{\"action\":\"sql\",\"query\":\"select l.product, r.segment, count(*), sum(l.balance), sum(r.on_book) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id group by l.product, r.segment\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972468.489422,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, r.segment, count(*), sum(l.balance), sum(r.on_book) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id group by l.product, r.segment",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972471.5378666,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.status_cd, r.on_book, count(*), sum(l.balance), min(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' and r.segment in ('H1','H2') group by 1,2</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972473.9736521,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, count(*), sum(l.balance), min(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' and r.segment in ('H1','H2') group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972473.97395,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, count(*), sum(l.balance), min(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' and r.segment in ('H1','H2') group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972478.3460467,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' and r.segment in ('H1','H2') and r.on_book=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972478.3462956,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' and r.segment in ('H1','H2') and r.on_book=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

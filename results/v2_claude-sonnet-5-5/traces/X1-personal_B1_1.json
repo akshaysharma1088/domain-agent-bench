@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972785.8025887,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">SELECT COUNT(*), SUM(l.product='personal'), SUM(a.product='personal'), SUM(l.product='personal' AND a.product='personal'), SUM(a.status='FUNDED') FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B'</parameter>\n</invoke>\n\n\n\n<parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">SELECT COUNT(*), SUM(l.product='personal'), SUM(a.product='personal'), SUM(l.product='personal' AND a.product='personal'), SUM(a.status='FUNDED') FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B'</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972787.740775,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*), SUM(l.product='personal'), SUM(a.product='personal'), SUM(l.product='personal' AND a.product='personal'), SUM(a.status='FUNDED') FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972787.741121,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*), SUM(l.product='personal'), SUM(a.product='personal'), SUM(l.product='personal' AND a.product='personal'), SUM(a.status='FUNDED') FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972789.6941292,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B' AND l.product='personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972789.6943798,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B' AND l.product='personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

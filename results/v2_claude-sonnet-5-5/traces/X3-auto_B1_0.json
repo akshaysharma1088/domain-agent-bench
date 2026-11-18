@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972789.7757986,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.segment in ('H1','H2') group by 1,2</parameter>\n</invoke>\naccount"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972792.12355,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.segment in ('H1','H2') group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972792.1238227,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.segment in ('H1','H2') group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972796.911802,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select round(sum(l.balance),2) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.segment in ('H1','H2')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972796.912043,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(sum(l.balance),2) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.segment in ('H1','H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

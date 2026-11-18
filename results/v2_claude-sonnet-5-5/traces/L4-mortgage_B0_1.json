@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972344.5635943,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select product, status_cd, count(*), avg(days_past_due), min(days_past_due), max(days_past_due) from svc_loans group by 1,2</parameter>\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"select product, status_cd, count(*), avg(days_past_due) , min(days_past_due), max(days_past_due) from svc_loans group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972344.5642993,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select product, status_cd, count(*), avg(days_past_due) , min(days_past_due), max(days_past_due) from svc_loans group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972347.9421704,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.status_cd, r.on_book, count(*), avg(l.days_past_due) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' group by 1,2</parameter>\n</invoke>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972350.252777,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, count(*), avg(l.days_past_due), avg(r.forbearance_flag) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972350.2531466,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, count(*), avg(l.days_past_due), avg(r.forbearance_flag) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972352.7862496,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select round(avg(days_past_due),2) from svc_loans where product='mortgage' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972352.7864735,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(avg(days_past_due),2) from svc_loans where product='mortgage' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972283.0170355,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select status_cd, count(*), min(days_past_due), max(days_past_due), sum(days_past_due>0) from svc_loans where product='auto' group by status_cd</parameter>\n</invoke>\n...\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select status_cd, product, count(*), min(days_past_due), max(days_past_due) from svc_loans group by 1,2</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972284.743212,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select status_cd, count(*), min(days_past_due), max(days_past_due), sum(days_past_due>0) from svc_loans where product='auto' group by status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972284.7434652,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select status_cd, count(*), min(days_past_due), max(days_past_due), sum(days_past_due>0) from svc_loans where product='auto' group by status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972288.5271688,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"\">\n</invoke>\n{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, r.forbearance_flag, count(*), min(l.days_past_due), max(l.days_past_due), sum(l.days_past_due<>r.days_past_due) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972288.5275705,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, r.forbearance_flag, count(*), min(l.days_past_due), max(l.days_past_due), sum(l.days_past_due<>r.days_past_due) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972292.111328,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans where product='auto' and status_cd='D'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972292.111515,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans where product='auto' and status_cd='D'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

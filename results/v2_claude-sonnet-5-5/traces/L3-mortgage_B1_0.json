@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972731.3705084,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n</invoke>\n{\"action\":\"sql\",\"query\":\"select product, count(*) from svc_loans group by product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972731.3708496,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select product, count(*) from svc_loans group by product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972732.3547423,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(p.amount),2) FROM svc_payments p JOIN svc_loans l ON l.loan_id = p.loan_id WHERE l.product = 'mortgage' AND p.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972732.355163,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(p.amount),2) FROM svc_payments p JOIN svc_loans l ON l.loan_id = p.loan_id WHERE l.product = 'mortgage' AND p.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

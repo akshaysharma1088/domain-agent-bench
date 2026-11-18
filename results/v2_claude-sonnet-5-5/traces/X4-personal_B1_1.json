@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972857.1033175,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select count(*), count(distinct l.loan_id), sum(l.product=a.product), sum(a.status='FUNDED') from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'</parameter>\n</invoke>\n_cd"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972858.8809214,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select count(*) as n, count(distinct l.loan_id) as d, sum(a.product='personal') as app_personal, sum(a.status='FUNDED') as funded from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972858.8812168,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) as n, count(distinct l.loan_id) as d, sum(a.product='personal') as app_personal, sum(a.status='FUNDED') as funded from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972860.7784278,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972860.7787125,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='personal' and a.uw_cd='E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

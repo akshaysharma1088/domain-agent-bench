@@ -1,0 +1,26 @@
+[
+ {
+  "ts": 1794973023.1925788,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select count(distinct n.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where l.product='personal' and lower(n.note) like '%hardship%'</parameter>\n</invoke>\n{\"action\":\"submit\",\"query\":\"select count(distinct n.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where l.product='personal' and lower(n.note) like '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973023.192821,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct n.loan_id) from svc_loan_notes n join svc_loans l on l.loan_id=n.loan_id where l.product='personal' and lower(n.note) like '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

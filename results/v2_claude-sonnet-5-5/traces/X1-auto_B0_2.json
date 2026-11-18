@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972373.4723363,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"a\">\n</invoke>\n</invoke>\n```\n\nCorrection: I must reply with a single JSON object.\n\n{\"action\":\"sql\",\"query\":\"select channel, count(*), min(product), max(product) from orig_applications group by channel\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972373.4730513,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select channel, count(*), min(product), max(product) from orig_applications group by channel",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972376.2795157,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select count(*), sum(l.product='auto'), sum(a.product='auto'), sum(l.product='auto' and a.product='auto') from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972376.2799695,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), sum(l.product='auto'), sum(a.product='auto'), sum(l.product='auto' and a.product='auto') from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972379.3240159,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(distinct l.loan_id) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B' and l.product='auto'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972379.324314,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(distinct l.loan_id) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B' and l.product='auto'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

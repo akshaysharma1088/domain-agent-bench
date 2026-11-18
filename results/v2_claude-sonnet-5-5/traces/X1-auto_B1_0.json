@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972751.6345694,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">SELECT COUNT(*), SUM(a.product='auto'), SUM(a.status='FUNDED'), COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.channel='B'</parameter>\n</invoke>\naises\n\n\n<invoke name=\"submit\">\n<parameter name=\"query\">SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.channel='B'</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972753.50318,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*), SUM(a.product='auto'), SUM(a.status='FUNDED'), COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.channel='B'\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972753.5035608,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*), SUM(a.product='auto'), SUM(a.status='FUNDED'), COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972755.5747547,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.channel='B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972755.5749295,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE l.product='auto' AND a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

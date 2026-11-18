@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794973156.4298224,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke>{\"action\":\"sql\",\"query\":\"SELECT SUM(p.amount) FROM svc_payments p JOIN svc_loans l ON l.loan_id=p.loan_id WHERE l.product='personal' AND p.reversed=0\"}</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973156.4302237,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(p.amount) FROM svc_payments p JOIN svc_loans l ON l.loan_id=p.loan_id WHERE l.product='personal' AND p.reversed=0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973157.5160756,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(p.amount) FROM svc_payments p JOIN svc_loans l ON l.loan_id=p.loan_id WHERE l.product='personal' AND p.reversed=0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973157.5164123,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(p.amount) FROM svc_payments p JOIN svc_loans l ON l.loan_id=p.loan_id WHERE l.product='personal' AND p.reversed=0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972367.9164388,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name={\"action\":\"sql\",\"query\":\"SELECT channel, count(*), count(distinct product) FROM orig_applications GROUP BY channel\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972367.9170978,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT channel, count(*), count(distinct product) FROM orig_applications GROUP BY channel",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972370.8871646,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT l.product AS loan_product, a.product AS app_product, a.channel, count(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id GROUP BY 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972370.8879237,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product AS loan_product, a.product AS app_product, a.channel, count(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id GROUP BY 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972373.0815642,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT count(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.channel = 'B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972373.0818698,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT count(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

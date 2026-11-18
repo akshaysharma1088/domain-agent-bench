@@ -1,0 +1,111 @@
+[
+ {
+  "ts": 1794973242.528961,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"ask\">\n<parameter name=\"domain\">risk</parameter>\n<parameter name=\"request_type\">select_ids</parameter>\n<parameter name=\"question\">loan_ids that Risk Analytics classifies as high risk</parameter>\n</invoke>\n_placeholder\n\n\n<invoke name=\"ask\">\n<parameter name=\"domain\">risk</parameter>\n<parameter name=\"request_type\">select_ids</parameter>\n<parameter name=\"question\">loan_ids that Risk Analytics classifies as high risk</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973244.1337502,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Which loan_ids does Risk Analytics classify as high risk?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973244.1337636,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Which loan_ids does Risk Analytics classify as high risk?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973246.2757864,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"Applied the Risk Analytics segment definition: HIGH risk = segment H1 or H2. The request did not ask for active accounts, so I did not filter on on_book, forbearance_flag or days_past_due. The result includes every loan in a high-risk segment, whether or not it is active under the Risk definition.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973246.2759788,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973250.4246352,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">SELECT l.status_cd, COUNT(*), SUM(l.balance) FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id=l.loan_id WHERE l.product='auto' GROUP BY l.status_cd</parameter>\n</invoke>\n{\"action\":\"sql\",\"query\":\"SELECT l.status_cd, COUNT(*), SUM(l.balance) FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id=l.loan_id WHERE l.product='auto' GROUP BY l.status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973250.4248517,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.status_cd, COUNT(*), SUM(l.balance) FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id=l.loan_id WHERE l.product='auto' GROUP BY l.status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973254.0412655,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(l.balance) FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id=l.loan_id WHERE l.product='auto' AND l.status_cd IN ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973254.0414743,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(l.balance) FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id=l.loan_id WHERE l.product='auto' AND l.status_cd IN ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

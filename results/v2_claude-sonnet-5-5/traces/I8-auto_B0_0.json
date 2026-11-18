@@ -1,0 +1,72 @@
+[
+ {
+  "ts": 1794972712.7596552,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<antml:parameter name=\"x\"></parameter>\n</invoke>\n\n\n<antml:parameter name=\"x\"></parameter>\n</invoke>\n\n\n<antml:parameter name=\"x\"></parameter>\n</invoke>\n\n\n<antml:parameter name=\"x\"></parameter>\n</invoke>\n\n\n<antml:parameter name=\"x\"></parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972715.7506676,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972715.7508807,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972723.0796661,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<antml:parameter name=\"x\"></parameter>\n</antml:action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n\n<parameter name=\"x\"></parameter>\n</action>\n\n"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972724.6439536,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972724.6441329,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

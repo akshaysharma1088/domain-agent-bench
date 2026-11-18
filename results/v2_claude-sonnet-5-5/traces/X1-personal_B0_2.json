@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972383.6848137,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select channel, count(*), min(product), max(product) from orig_applications group by channel</parameter>\n</invoke>\n{\"action\":\"sql\",\"query\":\"select channel, count(*), min(product), max(product) from orig_applications group by channel\"}\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select channel, count(*) from orig_applications group by channel</parameter>\n</invoke>\n{\"action\":\"sql\",\"query\":\"select channel, count(*) from orig_applications group by channel\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972385.7110355,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select channel, count(*) from orig_applications group by channel\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972385.7115173,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select channel, count(*) from orig_applications group by channel",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972388.4116232,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select count(*), sum(l.product='personal'), sum(a.product='personal'), sum(l.product='personal' and a.product='personal') from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972388.412014,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), sum(l.product='personal'), sum(a.product='personal'), sum(l.product='personal' and a.product='personal') from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972390.5169313,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B' and l.product='personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972390.5171921,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.channel='B' and l.product='personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

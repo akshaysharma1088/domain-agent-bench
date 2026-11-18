@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794973161.0568502,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select product, count(*) from svc_loans group by product\"}\n\n\n\n{\"action\":\"sql\",\"query\":\"select product, count(*) from svc_loans group by product\"}\n\n\n{\"action\":\"sql\",\"query\":\"select product, count(*) c from svc_loans group by product\"}\n\n\n{\"action\":\"sql\",\"query\":\"select distinct product from svc_loans\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973162.5837576,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select product, count(*) c from svc_loans group by product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973162.5840394,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select product, count(*) c from svc_loans group by product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973164.3595943,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select sum(p.amount) from svc_payments p join svc_loans l on l.loan_id = p.loan_id where l.product = 'mortgage' and p.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973164.3600347,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select sum(p.amount) from svc_payments p join svc_loans l on l.loan_id = p.loan_id where l.product = 'mortgage' and p.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972780.1849213,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select count(*), sum(a.product='auto'), sum(a.status='FUNDED') from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.channel='B'</parameter>\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"select count(*), sum(a.product='auto'), sum(a.status='FUNDED') from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.channel='B'\",\"action_input\":null}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972780.18518,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*), sum(a.product='auto'), sum(a.status='FUNDED') from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972782.6462355,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.channel='B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972782.646482,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where l.product='auto' and a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972761.4867866,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">SELECT l.product, a.product, a.status, count(*), count(distinct l.loan_id) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B' GROUP BY 1,2,3</parameter>\n</invoke>\nid"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972763.4601107,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT l.product AS loan_product, a.product AS app_product, a.status, count(*) AS n, count(distinct l.loan_id) AS d FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B' GROUP BY 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972763.4606268,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product AS loan_product, a.product AS app_product, a.status, count(*) AS n, count(distinct l.loan_id) AS d FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B' GROUP BY 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972765.517386,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT count(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B' AND l.product='personal'\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972765.5177057,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT count(*) FROM svc_loans l JOIN orig_applications a ON a.app_id=l.app_id WHERE a.channel='B' AND l.product='personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

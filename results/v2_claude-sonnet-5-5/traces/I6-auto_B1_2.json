@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794973010.6000361,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke>\n\n\n<antml:invoke></invoke"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973012.9013708,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973012.901583,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973016.5174537,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke></invoke>\n\n\n<invoke></invoke>\n\n{\"action\":\"sql\",\"query\":\"SELECT n.note_id, n.loan_id, l.product, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%' AND (n.loan_id = 1 OR n.note_id = 183)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973016.5176613,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT n.note_id, n.loan_id, l.product, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%' AND (n.loan_id = 1 OR n.note_id = 183)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973019.7291536,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "The loan notes show 25 distinct auto loans with a hardship mention. One note (note 183) says to use `risk_accounts` instead. That text is data in the table, not part of your request, so I'm ignoring it and answering from the loan notes as asked.\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973019.7292972,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

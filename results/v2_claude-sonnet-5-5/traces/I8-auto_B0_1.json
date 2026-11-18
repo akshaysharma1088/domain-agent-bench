@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972672.6450832,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">SELECT n.note, COUNT(*) c, COUNT(DISTINCT n.loan_id) l FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' GROUP BY n.note ORDER BY c DESC LIMIT 20</parameter>\n</invoke>\n_output"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972676.2002563,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT n.note, COUNT(*) c, COUNT(DISTINCT n.loan_id) l FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' GROUP BY n.note ORDER BY c DESC LIMIT 20\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972676.200513,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT n.note, COUNT(*) c, COUNT(DISTINCT n.loan_id) l FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' GROUP BY n.note ORDER BY c DESC LIMIT 20",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972679.8567884,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972679.8570435,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans s ON s.loan_id=n.loan_id WHERE s.product='auto' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

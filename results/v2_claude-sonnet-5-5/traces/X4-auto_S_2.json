@@ -1,0 +1,211 @@
+[
+ {
+  "ts": 1794973284.1707623,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"app_ids of applications that were approved by exception\"}\n\n\n<invoke name=\"noop\">\n</invoke>\n\n\n<invoke name=\"noop\">\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973284.1707811,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "app_ids of applications that were approved by exception",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973288.9360964,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE uw_cd = 'E'\", \"note\": \"Applied the glossary definition: 'approved by exception' means uw_cd = 'E'. I did not filter on status, so the result includes every application with that underwriting code, whether it is still active, funded, withdrawn or otherwise. The sample rows show uw_cd populated on declined applications, so it does not look tied to the final status.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973288.9363108,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE uw_cd = 'E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973292.4232168,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"noop\">\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans l WHERE l.product='auto' AND l.app_id IN (SELECT app_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973292.42342,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l WHERE l.product='auto' AND l.app_id IN (SELECT app_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973296.6676729,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"noop\">\n</invoke>\n\n{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"explain\",\"question\":\"What is the exact definition of 'approved by exception'? Is uw_cd = 'E' alone sufficient, or must the application's final decision/status also be approved (not declined)? Which column and values indicate approval?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973296.6676877,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "explain",
+   "question": "What is the exact definition of 'approved by exception'? Is uw_cd = 'E' alone sufficient, or must the application's final decision/status also be approved (not declined)? Which column and values indicate approval?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973301.189233,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "explain",
+   "raw": "{\"answer\": \"'Approved by exception' is uw_cd = 'E', the underwriting code for approval by exception. The glossary does not say uw_cd alone reflects the final outcome, and sample rows show uw_cd = 'S' (standard approval) on DECLINED and WITHDRAWN applications, so uw_cd is not tied to final status. To count an application as approved by exception that is actually approved, use uw_cd = 'E' together with status in ('APPROVED','FUNDED'); status is the column that shows the outcome, where APPROVED is still in progress and FUNDED means it became a loan. Treat that combination as my recommended reading, since the glossary does not state it explicitly.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973304.7511744,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"ask\">\n</invoke>\n\n{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"app_ids of applications with uw_cd = 'E' AND status in ('APPROVED','FUNDED')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973304.7511885,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "app_ids of applications with uw_cd = 'E' AND status in ('APPROVED','FUNDED')",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973306.4623585,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE uw_cd = 'E' AND status IN ('APPROVED', 'FUNDED')\", \"note\": \"Applied the request literally: uw_cd 'E' (approved by exception) with status APPROVED or FUNDED. APPROVED applications are still active (not yet funded) and FUNDED ones have become loans; both are included as requested. No PII table was used.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973306.4625728,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE uw_cd = 'E' AND status IN ('APPROVED', 'FUNDED')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973308.6561365,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"noop\">\n</invoke>\n</invoke>\n\nLet me run the count with the refined ID set.\n\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans l WHERE l.product='auto' AND l.app_id IN (SELECT app_id FROM a2a_result_2)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973308.6563332,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l WHERE l.product='auto' AND l.app_id IN (SELECT app_id FROM a2a_result_2)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973310.5922208,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"noop\">\n</invoke>\n```json\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans l WHERE l.product='auto' AND l.app_id IN (SELECT app_id FROM a2a_result_2)\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794973310.5923536,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l WHERE l.product='auto' AND l.app_id IN (SELECT app_id FROM a2a_result_2)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

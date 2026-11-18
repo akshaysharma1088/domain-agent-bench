@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972416.1751368,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name={\"action\":\"sql\",\"query\":\"select segment, count(*), sum(on_book), min(pd_score), max(pd_score), sum(forbearance_flag) from risk_accounts group by segment\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972416.1756475,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select segment, count(*), sum(on_book), min(pd_score), max(pd_score), sum(forbearance_flag) from risk_accounts group by segment",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972419.543073,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select l.status_cd, r.on_book, count(*), sum(l.balance), sum(r.loan_id is null) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and (r.segment in ('H1','H2') or r.loan_id is null) group by 1,2</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972421.844079,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.status_cd, r.on_book, r.segment, count(*), sum(l.balance) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and (r.segment in ('H1','H2') or r.loan_id is null) group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972421.8443713,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.status_cd, r.on_book, r.segment, count(*), sum(l.balance) from svc_loans l left join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and (r.segment in ('H1','H2') or r.loan_id is null) group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972424.9410906,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select round(sum(l.balance),2) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.segment in ('H1','H2') and r.on_book=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972424.9414108,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select round(sum(l.balance),2) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='auto' and r.segment in ('H1','H2') and r.on_book=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

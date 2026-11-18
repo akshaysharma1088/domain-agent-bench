@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972710.404664,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select product, status_cd, count(*), sum(balance) from svc_loans group by 1,2</parameter>\n</invoke>\nAI: \n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select product, count(*) from svc_loans group by 1</parameter>\n</invoke>\n\n\n\n<invoke name=\"sql\">\n<parameter name=\"query\">select distinct product from svc_loans</parameter>\n</invoke>\n\n\n\n<invoke name=\"submit\">\n<parameter name=\"query\">select sum(balance) from svc_loans where product='mortgage' and status_cd in ('C','D','F')</parameter>\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972711.7631228,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select product, status_cd, count(*), sum(balance) from svc_loans group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972711.7637506,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select product, status_cd, count(*), sum(balance) from svc_loans group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972713.0761242,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select sum(balance) from svc_loans where product='mortgage' and status_cd in ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972713.0763483,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select sum(balance) from svc_loans where product='mortgage' and status_cd in ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

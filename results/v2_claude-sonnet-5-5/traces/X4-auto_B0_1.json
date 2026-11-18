@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972450.2150407,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">select uw_cd, status, count(*) from orig_applications group by 1,2</parameter>\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"select uw_cd, status, count(*) from orig_applications group by 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972450.2161772,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select uw_cd, status, count(*) from orig_applications group by 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972453.3382733,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"action\">sql</parameter>\n<parameter name=\"query\">select a.status, l.product, a.product, count(*), count(distinct l.loan_id) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.uw_cd='E' group by 1,2,3</parameter>\n</invoke>\n\n{\"action\":\"sql\",\"query\":\"select a.status, l.product, a.product, count(*), count(distinct l.loan_id) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.uw_cd='E' group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972453.3387835,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select a.status, l.product, a.product, count(*), count(distinct l.loan_id) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.uw_cd='E' group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972455.9454954,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.uw_cd='E' and l.product='auto'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972455.945815,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select count(*) from svc_loans l join orig_applications a on a.app_id=l.app_id where a.uw_cd='E' and l.product='auto'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]

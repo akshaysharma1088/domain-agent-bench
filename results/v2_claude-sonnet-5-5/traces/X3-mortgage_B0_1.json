@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972442.1097875,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke name=\"sql\">\n<parameter name=\"query\">select segment, count(*), min(pd_score), max(pd_score), sum(on_book) from risk_accounts group by segment</parameter>\n</invoke>\n\n<parameter name=\"query\">select product, status_cd, count(*), sum(balance) from svc_loans group by 1,2</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n<parameter name=\"query\">select 1</parameter>\n</invoke>\n\n<parameter name=\"action\">sql</parameter>\n\n"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972443.165504,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select segment, count(*), min(pd_score), max(pd_score), sum(on_book), min(days_past_due), max(days_past_due) from risk_accounts group by segment\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972443.166196,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select segment, count(*), min(pd_score), max(pd_score), sum(on_book), min(days_past_due), max(days_past_due) from risk_accounts group by segment",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972444.423834,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"select l.product, l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.segment in ('H1','H2') group by 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972444.4242651,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select l.product, l.status_cd, r.on_book, count(*), sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where r.segment in ('H1','H2') group by 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972447.013483,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"select sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' and r.segment in ('H1','H2') and r.on_book=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ },
+ {
+  "ts": 1794972447.0138311,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "select sum(l.balance) from svc_loans l join risk_accounts r on r.loan_id=l.loan_id where l.product='mortgage' and r.segment in ('H1','H2') and r.on_book=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-sonnet-5-5"
+ }
+]
