@@ -93,7 +93,12 @@ run.py, summarize.py
 
 ## Results
 
-See `results/SUMMARY.md`. In short, with qwen2.5-coder:7b and llama3.1:8b: domain context decides
-correctness; the scoped agent matches the strong baseline on local tasks with a smaller prompt;
-contract-mediated cross-domain work is much less accurate and more expensive than direct access;
-and no model followed an injected instruction in either tier.
+See `results/SUMMARY.md` (four models, 1,728 runs). In short: domain context decides correctness;
+the scoped agent matches the strong baseline on local tasks with a smaller prompt; agents with a
+broad credential and no domain context read other domains' tables unprompted; contract-mediated
+cross-domain work comes within 6 to 11 points of direct access for claude-haiku-5-5 and
+claude-sonnet-5-5 at about twice the model calls, and fails for qwen2.5-coder:7b and llama3.1:8b;
+injected instructions were followed in 1 of 576 baseline runs.
+
+To run a hosted Anthropic model, set the repository secret `ANTHROPIC_API_KEY` and use the
+`bench-api` workflow, or locally: `python run.py --backend anthropic --model <id> --repeats 3`.
