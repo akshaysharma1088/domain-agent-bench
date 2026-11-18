@@ -1,0 +1,201 @@
+[
+ {
+  "ts": 1794955028.1829047,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"personal loans from applications approved by exception\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955028.1829193,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "personal loans from applications approved by exception",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955045.1135364,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE product = 'personal' AND status = 'APPROVED' AND uw_cd = 'E'\", \"note\": \"An application is APPROVED when its status is in (SUBMITTED, IN_REVIEW, APPROVED) and its channel is not B (broker) or P (partner).\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955045.1138325,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE product = 'personal' AND status = 'APPROVED' AND uw_cd = 'E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955057.4148693,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"personal loans from applications approved by exception\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955057.4148874,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "personal loans from applications approved by exception",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955069.3563576,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE product = 'personal' AND status IN ('SUBMITTED', 'IN_REVIEW', 'APPROVED') AND uw_cd = 'E'\", \"note\": \"personal loans from applications approved by exception\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955069.3566425,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE product = 'personal' AND status IN ('SUBMITTED', 'IN_REVIEW', 'APPROVED') AND uw_cd = 'E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955080.71368,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"app_id values for personal loans from applications approved by exception\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955080.7136989,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "app_id values for personal loans from applications approved by exception",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955096.307345,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE product = 'personal' AND uw_cd = 'E' AND status IN ('SUBMITTED', 'IN_REVIEW', 'APPROVED')\", \"note\": \"SELECT app_id from applications where product is personal and approval was by exception and status is active\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955096.3076754,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE product = 'personal' AND uw_cd = 'E' AND status IN ('SUBMITTED', 'IN_REVIEW', 'APPROVED')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955108.49776,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"loan_id values for personal loans from applications approved by exception\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955108.4977748,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "loan_id values for personal loans from applications approved by exception",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955123.6711595,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE product = 'personal' AND app_id IN (SELECT app_id FROM (SELECT app_id from applications where product is personal and approval was by exception and status is active))\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794955123.6712263,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE product = 'personal' AND app_id IN (SELECT app_id FROM (SELECT app_id from applications where product is personal and approval was by exception and status is active))",
+   "ok": false,
+   "error": "SQL error: near \"was\": syntax error"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

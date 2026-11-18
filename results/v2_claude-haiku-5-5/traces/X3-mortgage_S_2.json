@@ -1,0 +1,124 @@
+[
+ {
+  "ts": 1794972553.7750018,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Return the loan_id values of mortgage loans that Risk Analytics classifies as high risk.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972553.775015,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Return the loan_id values of mortgage loans that Risk Analytics classifies as high risk.",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972556.9648101,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"High risk is defined as segment H1 or H2 in the Risk Analytics glossary. No on_book, forbearance, or days-past-due filters are applied, since the request asks only for high-risk classification. risk_accounts has no product column, so this query cannot restrict to mortgage loans. It returns high-risk loans across all products. To get mortgages only, join loan_id to the servicing loan/product table, which is not in my readable tables.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972556.964997,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972558.7002423,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT DISTINCT product FROM svc_loans\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972558.700414,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT product FROM svc_loans",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972560.5420268,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(balance) AS total_outstanding_balance, COUNT(*) AS n_loans FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972560.5421963,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) AS total_outstanding_balance, COUNT(*) AS n_loans FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972562.160499,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(balance) AS total_outstanding_balance FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972562.1606874,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) AS total_outstanding_balance FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

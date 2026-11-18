@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953727.2777689,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications WHERE product = 'personal' AND uw_cd = 'E' AND status = 'FUNDED';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953727.2780707,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications WHERE product = 'personal' AND uw_cd = 'E' AND status = 'FUNDED';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953738.5944686,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM orig_applications WHERE product = 'personal' AND uw_cd = 'E' AND status = 'FUNDED';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953738.594713,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications WHERE product = 'personal' AND uw_cd = 'E' AND status = 'FUNDED';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

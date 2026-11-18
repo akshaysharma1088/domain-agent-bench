@@ -1,0 +1,137 @@
+[
+ {
+  "ts": 1794972480.466463,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What is the Risk Analytics definition of an 'active' loan, including which status codes or conditions qualify?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972480.4664774,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What is the Risk Analytics definition of an 'active' loan, including which status codes or conditions qualify?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972481.7202656,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "explain",
+   "raw": "{\"answer\": \"In Risk Analytics, an ACTIVE account is one that is on the books (on_book = 1), not in forbearance (forbearance_flag = 0), and less than 30 days past due. This is narrower than the Servicing meaning of active, and the segment codes (L1, L2, M1, H1, H2) do not determine whether an account is active.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972483.5505044,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "The Risk definition is narrower than Servicing's, and Risk owns the on-book, forbearance, and past-due data. I'll ask Risk for the loan IDs that meet its active definition.\n\n{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Return the loan_id values for all loans that are active under the Risk Analytics definition (on_book = 1, forbearance_flag = 0, less than 30 days past due).\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972483.5505214,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Return the loan_id values for all loans that are active under the Risk Analytics definition (on_book = 1, forbearance_flag = 0, less than 30 days past due).",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972484.5104086,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30\", \"note\": \"Applied the Risk Analytics definition of ACTIVE: on_book = 1, forbearance_flag = 0, and days_past_due < 30. This is narrower than the Servicing meaning of active. Returns loan_id from risk_accounts, which is the servicing loan key.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972484.510842,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972486.1518154,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT l.product, COUNT(*) AS n FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id GROUP BY l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972486.1521883,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product, COUNT(*) AS n FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id GROUP BY l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972487.2355845,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) AS n FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972487.235853,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS n FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

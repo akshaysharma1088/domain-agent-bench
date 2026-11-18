@@ -1,0 +1,225 @@
+[
+ {
+  "ts": 1794956381.173588,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"How many personal loans are delinquent?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956381.1736078,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "How many personal loans are delinquent?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956403.8877459,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE product = 'personal' AND status = 'DECLINED' OR status = 'WITHDRAWN'\", \"note\": \"status in (SUBMITTED, IN_REVIEW, APPROVED) indicates an ACTIVE APPLICATION, so we exclude those statuses\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956403.8881764,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE product = 'personal' AND status = 'DECLINED' OR status = 'WITHDRAWN'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956411.4721143,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"How many personal loans are delinquent?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956411.4721334,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "How many personal loans are delinquent?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956440.3147693,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment = 'L1' OR segment = 'L2' AND days_past_due > 0\", \"note\": \"ACTIVE ACCOUNT in Risk is on the books (on_book = 1), not in forbearance (forbearance_flag = 0) and less than 30 days past due. This is narrower than the Servicing meaning of active. segment codes: L1, L2 = low; M1 = medium; H1, H2 = HIGH risk.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956440.3151689,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment = 'L1' OR segment = 'L2' AND days_past_due > 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956450.7809124,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"How many personal loans are delinquent?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956450.7809293,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "How many personal loans are delinquent?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956462.6153781,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE product = 'personal' AND status = 'DECLINED' OR status = 'WITHDRAWN'\", \"note\": \"The definition of delinquent is not explicitly stated, but based on the context, it is assumed to be applications that are not FUNDED and not WITHDRAWN, which includes DECLINED applications.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956462.6157694,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE product = 'personal' AND status = 'DECLINED' OR status = 'WITHDRAWN'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956471.9224172,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What is the definition of delinquent in the risk domain?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956471.92243,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What is the definition of delinquent in the risk domain?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956478.8438616,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE status_cd = 'D' AND product = 'personal'\" }"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956478.8440223,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE status_cd = 'D' AND product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956485.5781765,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE status_cd = 'D' AND product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956485.5782733,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE status_cd = 'D' AND product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

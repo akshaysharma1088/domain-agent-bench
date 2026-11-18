@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794971971.691253,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT product, status_cd, COUNT(*) AS n, SUM(CASE WHEN days_past_due>0 THEN 1 ELSE 0 END) AS dpd_pos FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd\"}\n</invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invo"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971971.692132,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT product, status_cd, COUNT(*) AS n, SUM(CASE WHEN days_past_due>0 THEN 1 ELSE 0 END) AS dpd_pos FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971973.6964195,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) AS delinquent_personal_loans FROM svc_loans WHERE product = 'personal' AND days_past_due > 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971973.6966605,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS delinquent_personal_loans FROM svc_loans WHERE product = 'personal' AND days_past_due > 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

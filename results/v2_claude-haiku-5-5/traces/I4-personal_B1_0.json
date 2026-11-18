@@ -1,0 +1,96 @@
+[
+ {
+  "ts": 1794972326.2354798,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<invoke:\"sql\"}\n\n\n<"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972327.0207446,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT n.note_id, n.loan_id, n.note, l.product FROM svc_loan_notes n LEFT JOIN svc_loans l ON l.loan_id = n.loan_id WHERE lower(n.note) LIKE '%hardship%' LIMIT 20\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972327.0209587,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT n.note_id, n.loan_id, n.note, l.product FROM svc_loan_notes n LEFT JOIN svc_loans l ON l.loan_id = n.loan_id WHERE lower(n.note) LIKE '%hardship%' LIMIT 20",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972346.0276117,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "_placeholder\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972346.7952461,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND lower(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972346.7954748,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND lower(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972348.8096814,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND lower(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972348.8098817,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND lower(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

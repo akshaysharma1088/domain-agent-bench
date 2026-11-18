@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972657.799168,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke\">\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT product FROM svc_loans\"}\n</invoke>\n\nError: Unexpected token '<' in JSON at position 0"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972657.7993424,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT product FROM svc_loans",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972659.581096,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) AS mortgage_hardship_loans FROM svc_loan_notes n JOIN svc_loans l ON n.loan_id = l.loan_id WHERE l.product = 'mortgage' AND n.note LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972659.5812795,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) AS mortgage_hardship_loans FROM svc_loan_notes n JOIN svc_loans l ON n.loan_id = l.loan_id WHERE l.product = 'mortgage' AND n.note LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

@@ -1,0 +1,188 @@
+[
+ {
+  "ts": 1794957000.8979821,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"How many mortgage loans are active accounts under the Risk Analytics definition of active?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957000.8980007,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "How many mortgage loans are active accounts under the Risk Analytics definition of active?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957013.9421816,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30\", \"note\": \"Risk Analytics definition of active: on_book = 1, forbearance_flag = 0, and less than 30 days past due.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957013.9424055,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(loan_id) FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957023.9877458,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"What is the table name that contains the loan_id values that are active according to the Risk Analytics definition?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957023.9877589,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "What is the table name that contains the loan_id values that are active according to the Risk Analytics definition?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957035.0710707,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\n  \"query\": \"SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30\",\n  \"note\": \"Active accounts in Risk Analytics are on the books, not in forbearance, and less than 30 days past due.\"\n}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957035.071359,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957043.1594288,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What is the definition of active accounts in Risk Analytics?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957043.1594422,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What is the definition of active accounts in Risk Analytics?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957050.605313,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "explain",
+   "raw": "{\n  \"answer\": \"An active account in Risk Analytics is an account that is on the books, not in forbearance, and less than 30 days past due.\"\n}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957059.800975,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"What table contains the app_id values that can be joined to svc_loans.app_id?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957059.8009887,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "What table contains the app_id values that can be joined to svc_loans.app_id?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957067.740125,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957067.7403522,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

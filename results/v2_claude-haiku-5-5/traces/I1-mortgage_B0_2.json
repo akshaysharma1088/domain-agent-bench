@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972070.5636015,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/\n{\"action\":\"sql\",\"query\":\"SELECT l.product, COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972070.5638843,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product, COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972071.6025338,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'mortgage' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972071.6027577,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'mortgage' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

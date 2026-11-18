@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972546.6144328,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/\n{\"action\":\"sql\",\"query\":\"SELECT n.loan_id, l.product, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE n.note LIKE '%hardship%' ORDER BY n.loan_id\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972546.6146142,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT n.loan_id, l.product, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE n.note LIKE '%hardship%' ORDER BY n.loan_id",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972548.6200135,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) AS auto_hardship_loans FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND n.note LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972548.6202512,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) AS auto_hardship_loans FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND n.note LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972550.1375332,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "_submit\n\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) AS auto_hardship_loans FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND n.note LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972550.137647,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) AS auto_hardship_loans FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'auto' AND n.note LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

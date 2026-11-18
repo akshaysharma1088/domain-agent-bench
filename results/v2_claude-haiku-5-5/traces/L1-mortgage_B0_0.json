@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794971955.2466645,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT status_cd, product, COUNT(*), SUM(balance) FROM svc_loans GROUP BY status_cd, product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971955.2473216,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status_cd, product, COUNT(*), SUM(balance) FROM svc_loans GROUP BY status_cd, product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971957.384482,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "I need to pin down what \"active\" means before summing. The status codes have no documented legend, so I'll check whether `risk_accounts.on_book` lines up with them.\n\n{\"action\":\"sql\",\"query\":\"SELECT s.status_cd, r.on_book, COUNT(*), SUM(s.balance) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' GROUP BY s.status_cd, r.on_book\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971957.3848398,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT s.status_cd, r.on_book, COUNT(*), SUM(s.balance) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' GROUP BY s.status_cd, r.on_book",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971959.0442016,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "mortgage C status (active), total balance\n\n{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(balance), 2) AS total_outstanding_balance FROM svc_loans WHERE product = 'mortgage' AND status_cd = 'C'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971959.0444465,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(balance), 2) AS total_outstanding_balance FROM svc_loans WHERE product = 'mortgage' AND status_cd = 'C'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

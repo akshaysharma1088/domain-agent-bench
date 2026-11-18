@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794956671.5433724,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND on_book = 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956671.5434654,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND on_book = 1",
+   "ok": false,
+   "error": "SQL error: no such column: on_book"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956681.8674216,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND status_cd != 'P'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956681.8676558,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND status_cd != 'P'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956693.2056258,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND status_cd != 'P'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956693.2058024,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND status_cd != 'P'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

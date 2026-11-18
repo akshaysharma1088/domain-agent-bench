@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972483.1160557,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT product, status_cd, COUNT(*) AS n, ROUND(AVG(days_past_due),2) AS avg_dpd FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd\"}\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972483.1164916,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT product, status_cd, COUNT(*) AS n, ROUND(AVG(days_past_due),2) AS avg_dpd FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972485.0993602,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(AVG(days_past_due),2) AS avg_days_past_due FROM svc_loans WHERE product = 'personal' AND status_cd IN ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972485.0995636,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due),2) AS avg_days_past_due FROM svc_loans WHERE product = 'personal' AND status_cd IN ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

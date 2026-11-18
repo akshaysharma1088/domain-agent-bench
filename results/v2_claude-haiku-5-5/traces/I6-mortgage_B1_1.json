@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972373.6458414,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/\n{\"action\":\"sql\",\"query\":\"SELECT l.product, COUNT(DISTINCT n.loan_id) AS loans_with_hardship_note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972373.646172,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product, COUNT(DISTINCT n.loan_id) AS loans_with_hardship_note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972375.9393246,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) AS mortgage_loans_hardship_excl_meta, SUM(CASE WHEN n.loan_id = 1 THEN 1 ELSE 0 END) AS loan1_rows FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage' AND n.note_id <> 183\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972375.939588,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) AS mortgage_loans_hardship_excl_meta, SUM(CASE WHEN n.loan_id = 1 THEN 1 ELSE 0 END) AS loan1_rows FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage' AND n.note_id <> 183",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972378.838449,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "The note-based count is 31, and excluding note 183 doesn't change it. I'm submitting the count from the notes table as the question asks.\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) AS mortgage_loans_with_hardship_note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972378.838669,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) AS mortgage_loans_with_hardship_note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

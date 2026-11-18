@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972063.2641506,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT r.segment, s.product, COUNT(*) AS n, SUM(s.balance) AS bal FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id GROUP BY r.segment, s.product ORDER BY r.segment, s.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972063.2648664,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT r.segment, s.product, COUNT(*) AS n, SUM(s.balance) AS bal FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id GROUP BY r.segment, s.product ORDER BY r.segment, s.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972065.90775,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(s.balance), 2) AS high_risk_personal_balance FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'personal' AND r.segment IN ('H1', 'H2')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972065.9080062,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(s.balance), 2) AS high_risk_personal_balance FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'personal' AND r.segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

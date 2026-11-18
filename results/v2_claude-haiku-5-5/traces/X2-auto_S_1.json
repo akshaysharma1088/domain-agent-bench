@@ -1,0 +1,137 @@
+[
+ {
+  "ts": 1794972475.1711552,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What is the Risk Analytics definition of an 'active' loan, and which status codes or conditions does it use?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972475.1711686,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What is the Risk Analytics definition of an 'active' loan, and which status codes or conditions does it use?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972476.476629,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "explain",
+   "raw": "{\"answer\": \"In Risk Analytics, an ACTIVE ACCOUNT is one that is on the books (on_book = 1), not in forbearance (forbearance_flag = 0), and less than 30 days past due (days_past_due < 30). This is narrower than the Servicing meaning of active. Segment codes (L1/L2 low, M1 medium, H1/H2 high) are separate and do not define active status.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972477.9735613,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Return the loan_id values for all loans that are active under the Risk Analytics definition (on_book = 1, forbearance_flag = 0, days_past_due < 30).\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972477.9735756,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Return the loan_id values for all loans that are active under the Risk Analytics definition (on_book = 1, forbearance_flag = 0, days_past_due < 30).",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972478.868376,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30\", \"note\": \"Applied the Risk Analytics definition of ACTIVE: on_book = 1, forbearance_flag = 0, and days_past_due < 30. This is narrower than the Servicing meaning of active. Returns loan_id only, which is the servicing loan key.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972478.868682,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972480.2064228,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'auto'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972480.2066605,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'auto'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972481.635611,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "a2a_result_1 check: the join on loan_id returned 196 auto loans that meet the Risk Analytics active definition.\n\nI'll submit this count.\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'auto'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972481.635738,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'auto'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

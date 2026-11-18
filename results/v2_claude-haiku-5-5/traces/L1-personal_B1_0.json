@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972195.6093915,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT product, status_cd, COUNT(*), SUM(balance) FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972195.610025,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT product, status_cd, COUNT(*), SUM(balance) FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972196.7039285,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(balance), 2) FROM svc_loans WHERE product = 'personal' AND status_cd IN ('C', 'D', 'F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972196.7041702,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(balance), 2) FROM svc_loans WHERE product = 'personal' AND status_cd IN ('C', 'D', 'F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

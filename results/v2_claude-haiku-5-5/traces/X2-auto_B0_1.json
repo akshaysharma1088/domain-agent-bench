@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972030.3035986,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/\n{\"action\":\"sql\",\"query\":\"SELECT r.on_book, s.status_cd, s.product, COUNT(*) AS n FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id GROUP BY r.on_book, s.status_cd, s.product ORDER BY 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972030.3046014,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT r.on_book, s.status_cd, s.product, COUNT(*) AS n FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id GROUP BY r.on_book, s.status_cd, s.product ORDER BY 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972032.329287,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "The Risk Analytics table `risk_accounts` carries an `on_book` flag, so I'm treating \"active\" as `on_book = 1`. Auto loans with that flag total 224 (192 current + 23 D + 9 F). I'm submitting the count query.\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) AS active_auto_loans FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'auto' AND r.on_book = 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972032.3296187,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS active_auto_loans FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'auto' AND r.on_book = 1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

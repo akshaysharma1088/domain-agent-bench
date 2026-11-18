@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794956539.2868392,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(T2.amount) FROM svc_payments AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'mortgage' AND T1.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956539.2869234,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(T2.amount) FROM svc_payments AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'mortgage' AND T1.reversed = 0",
+   "ok": false,
+   "error": "SQL error: no such column: T2.amount"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956550.1496904,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(T1.amount) FROM svc_payments AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'mortgage' AND T1.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956550.1501067,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(T1.amount) FROM svc_payments AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'mortgage' AND T1.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956561.6659832,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(T1.amount) FROM svc_payments AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'mortgage' AND T1.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956561.6663325,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(T1.amount) FROM svc_payments AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'mortgage' AND T1.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

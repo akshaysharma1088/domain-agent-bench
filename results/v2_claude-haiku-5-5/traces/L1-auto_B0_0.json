@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794971945.7385414,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT status_cd, COUNT(*), SUM(balance) FROM svc_loans WHERE product='auto' GROUP BY status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971945.7387915,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status_cd, COUNT(*), SUM(balance) FROM svc_loans WHERE product='auto' GROUP BY status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971948.5439756,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT s.status_cd, r.on_book, COUNT(*), SUM(s.balance), MIN(s.days_past_due), MAX(s.days_past_due) FROM svc_loans s LEFT JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product='auto' GROUP BY s.status_cd, r.on_book\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971948.5443692,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT s.status_cd, r.on_book, COUNT(*), SUM(s.balance), MIN(s.days_past_due), MAX(s.days_past_due) FROM svc_loans s LEFT JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product='auto' GROUP BY s.status_cd, r.on_book",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971950.6856027,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(balance), 2) AS total_outstanding_balance FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971950.685836,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(balance), 2) AS total_outstanding_balance FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

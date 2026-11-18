@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972054.3946528,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT r.segment, l.product, COUNT(*) AS n, SUM(l.balance) AS total_bal FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id GROUP BY r.segment, l.product ORDER BY r.segment, l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972054.395623,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT r.segment, l.product, COUNT(*) AS n, SUM(l.balance) AS total_bal FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id GROUP BY r.segment, l.product ORDER BY r.segment, l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972056.4695227,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke_string>\nPLACEHOLDER\n</invoke_string>\n\n\n<invoke_string>\nPLACEHOLDER\n</invoke_string>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972058.2043116,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(l.balance) AS total_outstanding_balance FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' AND r.segment IN ('H1', 'H2')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972058.2046373,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(l.balance) AS total_outstanding_balance FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' AND r.segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

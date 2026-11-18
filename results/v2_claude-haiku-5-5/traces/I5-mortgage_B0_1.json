@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972165.2886996,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT product, COUNT(DISTINCT l.loan_id) AS loans, COUNT(DISTINCT CASE WHEN lower(n.note) LIKE '%hardship%' THEN l.loan_id END) AS hardship_loans FROM svc_loans l LEFT JOIN svc_loan_notes n ON n.loan_id = l.loan_id GROUP BY product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972165.2897751,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT product, COUNT(DISTINCT l.loan_id) AS loans, COUNT(DISTINCT CASE WHEN lower(n.note) LIKE '%hardship%' THEN l.loan_id END) AS hardship_loans FROM svc_loans l LEFT JOIN svc_loan_notes n ON n.loan_id = l.loan_id GROUP BY product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972167.4051228,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS hardship_mortgage_loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'mortgage' AND lower(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972167.40537,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS hardship_mortgage_loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'mortgage' AND lower(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

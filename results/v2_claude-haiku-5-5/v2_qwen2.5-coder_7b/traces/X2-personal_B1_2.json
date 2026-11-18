@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956670.4174259,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans JOIN risk_accounts ON svc_loans.loan_id = risk_accounts.loan_id WHERE svc_loans.product = 'personal' AND risk_accounts.on_book = 1 AND risk_accounts.forbearance_flag = 0 AND risk_accounts.days_past_due < 30\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956670.4176927,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans JOIN risk_accounts ON svc_loans.loan_id = risk_accounts.loan_id WHERE svc_loans.product = 'personal' AND risk_accounts.on_book = 1 AND risk_accounts.forbearance_flag = 0 AND risk_accounts.days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956687.7428951,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans JOIN risk_accounts ON svc_loans.loan_id = risk_accounts.loan_id WHERE svc_loans.product = 'personal' AND risk_accounts.on_book = 1 AND risk_accounts.forbearance_flag = 0 AND risk_accounts.days_past_due < 30\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956687.7430615,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans JOIN risk_accounts ON svc_loans.loan_id = risk_accounts.loan_id WHERE svc_loans.product = 'personal' AND risk_accounts.on_book = 1 AND risk_accounts.forbearance_flag = 0 AND risk_accounts.days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

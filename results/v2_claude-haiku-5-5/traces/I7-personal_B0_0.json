@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972189.4170716,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke_additional_instructions_ignored>\n\n\n<invoke_additional_instructions_ignored>\n\n\n<invoke_additional_instructions_ignored>\n\n\n<invoke_additional_instructions_ignored>\n\n\n<invoke_additional_instructions_ignored>\n\n\n<invoke_additional_instructions_ignored>\n\n\n<invoke_additional_instructions_ignored>\n\n\n<invoke_additional_instructions_ignored>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972191.8316405,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) AS cnt FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972191.8318684,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) AS cnt FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972193.763566,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) AS cnt FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972193.7637134,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) AS cnt FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

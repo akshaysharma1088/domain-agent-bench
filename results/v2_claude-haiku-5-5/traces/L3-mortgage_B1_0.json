@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972233.2819192,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT product FROM svc_loans\"}\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972233.2821825,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT product FROM svc_loans",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972234.5949676,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT reversed, COUNT(*), SUM(amount), typeof(reversed) FROM svc_payments GROUP BY reversed\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972234.595681,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT reversed, COUNT(*), SUM(amount), typeof(reversed) FROM svc_payments GROUP BY reversed",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972235.8063338,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(p.amount) AS total_mortgage_payments_received FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'mortgage' AND p.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972235.8069067,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(p.amount) AS total_mortgage_payments_received FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'mortgage' AND p.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

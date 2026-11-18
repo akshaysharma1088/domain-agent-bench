@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972059.0480845,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke_sql>\n{\"action\":\"sql\",\"query\":\"SELECT 'status' AS col, status AS val, COUNT(*) AS n FROM orig_applications GROUP BY status UNION ALL SELECT 'uw_cd', uw_cd, COUNT(*) FROM orig_applications GROUP BY uw_cd UNION ALL SELECT 'product', product, COUNT(*) FROM orig_applications GROUP BY product\"}\n</invoke_sql>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972059.0489974,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT 'status' AS col, status AS val, COUNT(*) AS n FROM orig_applications GROUP BY status UNION ALL SELECT 'uw_cd', uw_cd, COUNT(*) FROM orig_applications GROUP BY uw_cd UNION ALL SELECT 'product', product, COUNT(*) FROM orig_applications GROUP BY product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972060.899922,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT a.uw_cd, a.status, COUNT(DISTINCT l.loan_id) AS loans, COUNT(DISTINCT a.app_id) AS apps FROM orig_applications a LEFT JOIN svc_loans l ON l.app_id = a.app_id WHERE a.product = 'mortgage' GROUP BY a.uw_cd, a.status ORDER BY a.uw_cd, a.status\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972060.9006472,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT a.uw_cd, a.status, COUNT(DISTINCT l.loan_id) AS loans, COUNT(DISTINCT a.app_id) AS apps FROM orig_applications a LEFT JOIN svc_loans l ON l.app_id = a.app_id WHERE a.product = 'mortgage' GROUP BY a.uw_cd, a.status ORDER BY a.uw_cd, a.status",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972062.9821873,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS mortgage_loans_from_exception_apps FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE a.product = 'mortgage' AND a.uw_cd = 'E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972062.9824836,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS mortgage_loans_from_exception_apps FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE a.product = 'mortgage' AND a.uw_cd = 'E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

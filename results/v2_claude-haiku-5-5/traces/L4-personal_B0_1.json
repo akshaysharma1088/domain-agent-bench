@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972003.3687146,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT status_cd, COUNT(*), AVG(days_past_due) FROM svc_loans WHERE product='personal' GROUP BY status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972003.369041,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status_cd, COUNT(*), AVG(days_past_due) FROM svc_loans WHERE product='personal' GROUP BY status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972005.0495443,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT status_cd, COUNT(*), SUM(CASE WHEN balance>0 THEN 1 ELSE 0 END), AVG(days_past_due) FROM svc_loans WHERE product='personal' GROUP BY status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972005.049927,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status_cd, COUNT(*), SUM(CASE WHEN balance>0 THEN 1 ELSE 0 END), AVG(days_past_due) FROM svc_loans WHERE product='personal' GROUP BY status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972008.329775,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product='personal' AND status_cd <> 'P' AND balance > 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972008.3300366,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product='personal' AND status_cd <> 'P' AND balance > 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

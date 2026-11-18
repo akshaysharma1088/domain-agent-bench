@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956744.4228618,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(svc_loans.balance) FROM svc_loans JOIN risk_accounts ON svc_loans.loan_id = risk_accounts.loan_id WHERE svc_loans.product = 'personal' AND risk_accounts.segment = 'H1'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956744.4231076,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(svc_loans.balance) FROM svc_loans JOIN risk_accounts ON svc_loans.loan_id = risk_accounts.loan_id WHERE svc_loans.product = 'personal' AND risk_accounts.segment = 'H1'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956754.575731,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(svc_loans.balance) FROM svc_loans JOIN risk_accounts ON svc_loans.loan_id = risk_accounts.loan_id WHERE svc_loans.product = 'personal' AND risk_accounts.segment = 'H1'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956754.5758781,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(svc_loans.balance) FROM svc_loans JOIN risk_accounts ON svc_loans.loan_id = risk_accounts.loan_id WHERE svc_loans.product = 'personal' AND risk_accounts.segment = 'H1'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

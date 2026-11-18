@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956781.7540662,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM risk_accounts AS ra INNER JOIN svc_loans AS sl ON ra.loan_id = sl.loan_id WHERE ra.segment = 'H1' AND sl.product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956781.7542987,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM risk_accounts AS ra INNER JOIN svc_loans AS sl ON ra.loan_id = sl.loan_id WHERE ra.segment = 'H1' AND sl.product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956795.2589781,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM risk_accounts AS ra INNER JOIN svc_loans AS sl ON ra.loan_id = sl.loan_id WHERE ra.segment = 'H1' AND sl.product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956795.2591326,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM risk_accounts AS ra INNER JOIN svc_loans AS sl ON ra.loan_id = sl.loan_id WHERE ra.segment = 'H1' AND sl.product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972442.4245703,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT product, COUNT(*) FROM svc_loans GROUP BY product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972442.424885,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT product, COUNT(*) FROM svc_loans GROUP BY product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972443.64269,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(p.amount), 2) AS total_personal_payments_received FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'personal' AND p.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972443.643037,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(p.amount), 2) AS total_personal_payments_received FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'personal' AND p.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

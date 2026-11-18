@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972228.8947651,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT DISTINCT product, typeof(product) FROM svc_loans UNION ALL SELECT DISTINCT 'rev='||reversed, typeof(reversed) FROM svc_payments\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972228.8958166,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT product, typeof(product) FROM svc_loans UNION ALL SELECT DISTINCT 'rev='||reversed, typeof(reversed) FROM svc_payments",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972229.882247,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(p.amount), 2) AS total_auto_payments_received FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'auto' AND p.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972229.8827744,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(p.amount), 2) AS total_auto_payments_received FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'auto' AND p.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

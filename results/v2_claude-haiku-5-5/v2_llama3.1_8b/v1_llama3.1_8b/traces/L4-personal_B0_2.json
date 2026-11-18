@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794953817.436692,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND on_book = 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953817.436778,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND on_book = 1",
+   "ok": false,
+   "error": "SQL error: no such column: on_book"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953825.0840018,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND status_cd != 'P'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953825.0841837,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND status_cd != 'P'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953833.3161082,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND status_cd != 'P'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794953833.31622,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) FROM svc_loans WHERE product = 'personal' AND status_cd != 'P'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

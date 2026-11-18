@@ -1,0 +1,170 @@
+[
+ {
+  "ts": 1794956974.680899,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T1.product = 'personal' AND T1.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956974.68125,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T1.product = 'personal' AND T1.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956990.132618,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T1.product = 'personal' AND T1.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794956990.1328225,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T1.product = 'personal' AND T1.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957005.73203,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957005.7323213,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957023.6540604,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'APPROVED BY EXCEPTION' AND T1.status = 'FUNDED'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957023.6542242,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'APPROVED BY EXCEPTION' AND T1.status = 'FUNDED'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957042.5145462,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'FUNDED' AND T1.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957042.5146914,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'FUNDED' AND T1.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957058.362194,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'FUNDED'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957058.3624644,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'FUNDED'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957074.2494745,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'FUNDED'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957074.2496486,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM orig_applications AS T1 INNER JOIN svc_loans AS T2 ON T1.app_id = T2.app_id WHERE T2.product = 'personal' AND T1.status = 'FUNDED'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

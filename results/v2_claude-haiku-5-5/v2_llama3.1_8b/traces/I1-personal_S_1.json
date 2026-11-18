@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794957559.6688116,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'personal' AND T1.note LIKE '%hardship%'\" }"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957559.6690066,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'personal' AND T1.note LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957571.9241755,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'personal' AND T1.note LIKE '%hardship%'\" }"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957571.9243202,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT T1.loan_id) FROM svc_loan_notes AS T1 INNER JOIN svc_loans AS T2 ON T1.loan_id = T2.loan_id WHERE T2.product = 'personal' AND T1.note LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

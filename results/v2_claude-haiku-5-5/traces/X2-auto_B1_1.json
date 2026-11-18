@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972253.5475814,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT s.product, r.on_book, r.forbearance_flag, COUNT(*) AS n, SUM(CASE WHEN r.days_past_due < 30 THEN 1 ELSE 0 END) AS dpd_lt30 FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id GROUP BY s.product, r.on_book, r.forbearance_flag\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972253.548445,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT s.product, r.on_book, r.forbearance_flag, COUNT(*) AS n, SUM(CASE WHEN r.days_past_due < 30 THEN 1 ELSE 0 END) AS dpd_lt30 FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id GROUP BY s.product, r.on_book, r.forbearance_flag",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972255.5311003,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) AS n_rows, COUNT(DISTINCT r.loan_id) AS n_loans FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'auto' AND r.on_book = 1 AND r.forbearance_flag = 0 AND r.days_past_due < 30\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972255.5313833,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS n_rows, COUNT(DISTINCT r.loan_id) AS n_loans FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'auto' AND r.on_book = 1 AND r.forbearance_flag = 0 AND r.days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972256.9846468,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "_submit: the Risk Analytics definition gives 196 auto loans. The query counts on_book = 1, forbearance_flag = 0, and days_past_due < 30, with no duplicate loan_ids. The grouped counts showed only lowercase 'auto' in the product field, so no case variants are being missed.\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT r.loan_id) AS active_auto_risk_accounts FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'auto' AND r.on_book = 1 AND r.forbearance_flag = 0 AND r.days_past_due < 30\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972256.9849865,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT r.loan_id) AS active_auto_risk_accounts FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'auto' AND r.on_book = 1 AND r.forbearance_flag = 0 AND r.days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

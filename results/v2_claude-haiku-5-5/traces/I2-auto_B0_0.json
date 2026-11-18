@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972111.9033701,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<parameter_type>\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT l.product, n.loan_id, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE n.note LIKE '%hardship%' LIMIT 20\"}\n</parameter_type>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972111.903549,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT l.product, n.loan_id, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE n.note LIKE '%hardship%' LIMIT 20",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972114.689332,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(TRIM(l.product)) = 'auto' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972114.6895998,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(TRIM(l.product)) = 'auto' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

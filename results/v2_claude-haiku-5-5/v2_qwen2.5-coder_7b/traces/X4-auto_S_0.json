@@ -1,0 +1,211 @@
+[
+ {
+  "ts": 1794957406.103295,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"How many auto loans came from applications that were approved by exception?\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957406.103309,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "How many auto loans came from applications that were approved by exception?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957417.7166939,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "```json\n{\n  \"query\": \"SELECT COUNT(app_id) FROM orig_applications WHERE product = 'auto' AND uw_cd = 'E';\",\n  \"note\": \"This query counts the number of auto loan applications that were approved by exception.\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957417.7170079,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) FROM orig_applications WHERE product = 'auto' AND uw_cd = 'E';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957434.46359,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(app_id) AS auto_loans_approved_by_exception FROM svc_loans WHERE app_id IN (SELECT app_id FROM a2a_result_1 WHERE exception_approved = 1) AND product = 'auto'\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957434.4636898,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) AS auto_loans_approved_by_exception FROM svc_loans WHERE app_id IN (SELECT app_id FROM a2a_result_1 WHERE exception_approved = 1) AND product = 'auto'",
+   "ok": false,
+   "error": "SQL error: no such column: exception_approved"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957445.5144694,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"What is the name of the column that indicates if an application was approved by exception?\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957445.5144877,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "What is the name of the column that indicates if an application was approved by exception?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957456.3007827,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE uw_cd = 'E'\", \"note\": \"The 'uw_cd' column indicates if an application was approved by exception, with 'E' representing this status.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957456.3010235,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE uw_cd = 'E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957473.8553028,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(app_id) AS auto_loans_approved_by_exception FROM svc_loans WHERE app_id IN (SELECT app_id FROM a2a_result_2 WHERE uw_cd = 'E') AND product = 'auto'\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957473.855388,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) AS auto_loans_approved_by_exception FROM svc_loans WHERE app_id IN (SELECT app_id FROM a2a_result_2 WHERE uw_cd = 'E') AND product = 'auto'",
+   "ok": false,
+   "error": "SQL error: no such column: uw_cd"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957485.0173976,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"What is the name of the column that indicates if an application was approved by exception?\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957485.0174148,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "What is the name of the column that indicates if an application was approved by exception?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957492.921157,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "The column that indicates if an application was approved by exception is `uw_cd`. Specifically, when `uw_cd` is equal to 'E', it indicates that the application was approved by exception."
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957507.4277186,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(app_id) AS auto_loans_approved_by_exception FROM svc_loans WHERE app_id IN (SELECT app_id FROM a2a_result_2 WHERE exception_approved = 1) AND product = 'auto'\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794957507.427804,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) AS auto_loans_approved_by_exception FROM svc_loans WHERE app_id IN (SELECT app_id FROM a2a_result_2 WHERE exception_approved = 1) AND product = 'auto'",
+   "ok": false,
+   "error": "SQL error: no such column: exception_approved"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972468.5308444,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT product FROM svc_loans\"}\n</parameter>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972468.5310705,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT product FROM svc_loans",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972469.3099666,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT ROUND(SUM(p.amount),2) AS total_auto_payments FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'auto' AND p.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972469.3103142,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(p.amount),2) AS total_auto_payments FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'auto' AND p.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972470.0497887,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(p.amount),2) AS total_auto_payments FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'auto' AND p.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972470.0500622,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(p.amount),2) AS total_auto_payments FROM svc_payments p JOIN svc_loans l ON p.loan_id = l.loan_id WHERE l.product = 'auto' AND p.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

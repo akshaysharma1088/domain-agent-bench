@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972064.8170247,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/Let me first check the product values and note text to make sure the match is right.\n\n\n<invoke\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT l.product, COUNT(DISTINCT l.loan_id) AS n FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972064.8172574,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT l.product, COUNT(DISTINCT l.loan_id) AS n FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972065.8249502,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS n FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972065.8251653,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS n FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

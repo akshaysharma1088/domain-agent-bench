@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794971949.2881021,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT status_cd, COUNT(*), SUM(balance) FROM svc_loans WHERE product='personal' GROUP BY status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971949.2883387,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status_cd, COUNT(*), SUM(balance) FROM svc_loans WHERE product='personal' GROUP BY status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971951.8597925,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(balance), 2) AS total_outstanding_balance FROM svc_loans WHERE product='personal' AND status_cd IN ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971951.8600273,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(balance), 2) AS total_outstanding_balance FROM svc_loans WHERE product='personal' AND status_cd IN ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

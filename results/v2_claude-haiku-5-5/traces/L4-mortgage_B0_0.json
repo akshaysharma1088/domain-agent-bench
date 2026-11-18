@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794971994.7595112,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke\u3000sql\nSELECT status_cd, product, COUNT(*) FROM svc_loans GROUP BY status_cd, product;\n</invoke>\n\n\n<invoke>\n{\"action\":\"sql\",\"query\":\"SELECT status_cd, product, COUNT(*) AS n, AVG(days_past_due) AS avg_dpd FROM svc_loans GROUP BY status_cd, product ORDER BY product, status_cd\"}\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971994.7600594,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status_cd, product, COUNT(*) AS n, AVG(days_past_due) AS avg_dpd FROM svc_loans GROUP BY status_cd, product ORDER BY product, status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971997.1530511,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT s.status_cd, r.on_book, COUNT(*) AS n, ROUND(AVG(s.days_past_due),2) AS avg_dpd FROM svc_loans s LEFT JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' GROUP BY s.status_cd, r.on_book ORDER BY s.status_cd, r.on_book\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971997.153453,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT s.status_cd, r.on_book, COUNT(*) AS n, ROUND(AVG(s.days_past_due),2) AS avg_dpd FROM svc_loans s LEFT JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' GROUP BY s.status_cd, r.on_book ORDER BY s.status_cd, r.on_book",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971999.4871461,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "I'll define active mortgage loans as those not paid off (P) or closed/charged off (X). The on_book flag matches this split, so I'll use status instead of the flag.\n\n-free submission:\n\n{\"action\":\"submit\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) AS avg_dpd_active_mortgage FROM svc_loans WHERE product = 'mortgage' AND status_cd NOT IN ('P', 'X')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971999.4874005,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) AS avg_dpd_active_mortgage FROM svc_loans WHERE product = 'mortgage' AND status_cd NOT IN ('P', 'X')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

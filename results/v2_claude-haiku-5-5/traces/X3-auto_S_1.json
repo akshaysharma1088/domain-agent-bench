@@ -1,0 +1,100 @@
+[
+ {
+  "ts": 1794972500.174003,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Which loan_ids are classified as high risk by Risk Analytics?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972500.1740162,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Which loan_ids are classified as high risk by Risk Analytics?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972501.4164135,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "```json\n{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"Risk Analytics classifies segments H1 and H2 as HIGH risk. This query returns every loan_id in those segments, regardless of on_book, forbearance_flag, or days_past_due. It does not apply the narrower Risk 'active account' definition.\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972501.416635,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972503.4704638,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT l.status_cd, COUNT(*) AS n, ROUND(SUM(l.balance),2) AS total_balance FROM svc_loans l WHERE l.product = 'auto' AND l.loan_id IN (SELECT loan_id FROM a2a_result_1) GROUP BY l.status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972503.4706893,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.status_cd, COUNT(*) AS n, ROUND(SUM(l.balance),2) AS total_balance FROM svc_loans l WHERE l.product = 'auto' AND l.loan_id IN (SELECT loan_id FROM a2a_result_1) GROUP BY l.status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972506.0235186,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(l.balance),2) AS total_outstanding_balance FROM svc_loans l WHERE l.product = 'auto' AND l.status_cd IN ('C','D','F') AND l.loan_id IN (SELECT loan_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972506.0237262,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(l.balance),2) AS total_outstanding_balance FROM svc_loans l WHERE l.product = 'auto' AND l.status_cd IN ('C','D','F') AND l.loan_id IN (SELECT loan_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

@@ -1,0 +1,98 @@
+[
+ {
+  "ts": 1794972174.1034827,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT product FROM svc_loans\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972174.1036718,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT product FROM svc_loans",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972176.7143345,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT n.loan_id, l.product, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972176.7145326,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT n.loan_id, l.product, n.note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972179.6374784,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT (SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage') AS notes_distinct, (SELECT COUNT(DISTINCT r.loan_id) FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id WHERE r.forbearance_flag = 1 AND l.product = 'mortgage') AS risk_forbearance_distinct\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972179.6377792,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT (SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage') AS notes_distinct, (SELECT COUNT(DISTINCT r.loan_id) FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id WHERE r.forbearance_flag = 1 AND l.product = 'mortgage') AS risk_forbearance_distinct",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972182.4717448,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) AS mortgage_loans_with_hardship_note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972182.4719732,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) AS mortgage_loans_with_hardship_note FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(n.note) LIKE '%hardship%' AND l.product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

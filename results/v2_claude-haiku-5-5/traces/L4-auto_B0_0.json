@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794971980.489467,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT status_cd, COUNT(*), AVG(days_past_due), SUM(balance>0) FROM svc_loans WHERE product='auto' GROUP BY status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971980.4897385,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status_cd, COUNT(*), AVG(days_past_due), SUM(balance>0) FROM svc_loans WHERE product='auto' GROUP BY status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971982.63494,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "The status codes aren't defined in the data yet, so I'll check how `on_book` in `risk_accounts` lines up with each status before choosing a definition of \"active\".\n\n{\"action\":\"sql\",\"query\":\"SELECT s.status_cd, r.on_book, COUNT(*), AVG(s.days_past_due) FROM svc_loans s JOIN risk_accounts r ON r.loan_id=s.loan_id WHERE s.product='auto' GROUP BY s.status_cd, r.on_book\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971982.6352997,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT s.status_cd, r.on_book, COUNT(*), AVG(s.days_past_due) FROM svc_loans s JOIN risk_accounts r ON r.loan_id=s.loan_id WHERE s.product='auto' GROUP BY s.status_cd, r.on_book",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971985.0686405,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(AVG(s.days_past_due), 2) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'auto' AND r.on_book = 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971985.068882,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(s.days_past_due), 2) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'auto' AND r.on_book = 1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

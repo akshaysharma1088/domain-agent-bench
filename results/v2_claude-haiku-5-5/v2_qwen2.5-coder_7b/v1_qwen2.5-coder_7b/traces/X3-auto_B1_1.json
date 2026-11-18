@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953615.9843915,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT SUM(balance) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM risk_accounts WHERE segment = 'H1' AND on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30)\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953615.9846761,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM risk_accounts WHERE segment = 'H1' AND on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953634.7158594,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT SUM(balance) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM risk_accounts WHERE segment = 'H1' AND on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30)\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953634.7160823,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) FROM svc_loans WHERE product = 'auto' AND loan_id IN (SELECT loan_id FROM risk_accounts WHERE segment = 'H1' AND on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

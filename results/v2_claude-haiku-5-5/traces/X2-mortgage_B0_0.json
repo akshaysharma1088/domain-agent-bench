@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972056.5869746,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT r.on_book, s.status_cd, COUNT(*) FROM svc_loans s JOIN risk_accounts r ON r.loan_id=s.loan_id WHERE s.product='mortgage' GROUP BY r.on_book, s.status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972056.5873432,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT r.on_book, s.status_cd, COUNT(*) FROM svc_loans s JOIN risk_accounts r ON r.loan_id=s.loan_id WHERE s.product='mortgage' GROUP BY r.on_book, s.status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972058.388136,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "I'm treating \"active\" under Risk Analytics as `risk_accounts.on_book = 1`, since that is the only flag in the risk table that marks a loan as live. Under that rule the mortgage count is 231 + 38 + 21 = 290.\n\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' AND r.on_book = 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972058.388424,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' AND r.on_book = 1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

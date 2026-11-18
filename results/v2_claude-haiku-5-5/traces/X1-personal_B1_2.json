@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972264.6583276,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke_meta_check\n{\"action\":\"sql\",\"query\":\"SELECT o.channel, o.status, l.product, COUNT(*) AS n, COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l LEFT JOIN orig_applications o ON o.app_id = l.app_id GROUP BY o.channel, o.status, l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972264.6590672,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT o.channel, o.status, l.product, COUNT(*) AS n, COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l LEFT JOIN orig_applications o ON o.app_id = l.app_id GROUP BY o.channel, o.status, l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972265.8515484,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS personal_broker_loans FROM svc_loans l JOIN orig_applications o ON o.app_id = l.app_id WHERE o.channel = 'B' AND l.product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972265.8518267,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS personal_broker_loans FROM svc_loans l JOIN orig_applications o ON o.app_id = l.app_id WHERE o.channel = 'B' AND l.product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

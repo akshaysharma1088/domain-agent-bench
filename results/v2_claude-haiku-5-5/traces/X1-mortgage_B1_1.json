@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972250.4112434,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT l.product, a.channel, a.product AS app_product, COUNT(*) AS n FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id GROUP BY l.product, a.channel, a.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972250.4121244,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT l.product, a.channel, a.product AS app_product, COUNT(*) AS n FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id GROUP BY l.product, a.channel, a.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972251.885992,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) AS n FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE l.product = 'mortgage' AND a.channel = 'B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972251.8862689,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS n FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE l.product = 'mortgage' AND a.channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972045.464913,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT DISTINCT r.segment, l.product, COUNT(*) FROM risk_accounts r JOIN svc_loans l ON l.loan_id=r.loan_id GROUP BY r.segment, l.product ORDER BY 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972045.4654021,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT r.segment, l.product, COUNT(*) FROM risk_accounts r JOIN svc_loans l ON l.loan_id=r.loan_id GROUP BY r.segment, l.product ORDER BY 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972047.4699407,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(l.balance), 2) FROM svc_loans l WHERE l.product = 'mortgage' AND l.loan_id IN (SELECT r.loan_id FROM risk_accounts r WHERE r.segment IN ('H1', 'H2'))\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972047.4701955,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(l.balance), 2) FROM svc_loans l WHERE l.product = 'mortgage' AND l.loan_id IN (SELECT r.loan_id FROM risk_accounts r WHERE r.segment IN ('H1', 'H2'))",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

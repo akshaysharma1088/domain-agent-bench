@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972017.6891758,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<parameter_base>\n{\"action\":\"sql\",\"query\":\"SELECT s.status_cd, r.on_book, r.forbearance_flag, COUNT(*) FROM svc_loans s JOIN risk_accounts r ON r.loan_id=s.loan_id WHERE s.product='auto' GROUP BY 1,2,3\"}\n</parameter_base>\nrelated"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972017.6894615,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT s.status_cd, r.on_book, r.forbearance_flag, COUNT(*) FROM svc_loans s JOIN risk_accounts r ON r.loan_id=s.loan_id WHERE s.product='auto' GROUP BY 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972019.6550274,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "I don't have the Risk Analytics definition yet, so I'll check the loan notes for it before choosing a filter.\n\n{\"action\":\"sql\",\"query\":\"SELECT note_id, loan_id, note FROM svc_loan_notes WHERE note LIKE '%active%' OR note LIKE '%definition%' OR note LIKE '%on_book%' OR note LIKE '%risk%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972019.6551843,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT note_id, loan_id, note FROM svc_loan_notes WHERE note LIKE '%active%' OR note LIKE '%definition%' OR note LIKE '%on_book%' OR note LIKE '%risk%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972022.0885584,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "I found no written definition of \"active\" in the loan notes, so I'm using `on_book = 1` from `risk_accounts`, the only Risk Analytics flag in the data. This counts auto loans flagged as on book, including those in forbearance.\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans s JOIN risk_accounts r ON r.loan_id=s.loan_id WHERE s.product='auto' AND r.on_book=1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972022.0887642,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans s JOIN risk_accounts r ON r.loan_id=s.loan_id WHERE s.product='auto' AND r.on_book=1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

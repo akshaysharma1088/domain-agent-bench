@@ -1,0 +1,122 @@
+[
+ {
+  "ts": 1794957119.7931142,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'\" }"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957119.7935176,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957136.748236,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957136.7485034,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957153.289696,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957153.2900336,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957170.1497464,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957170.1500506,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957187.2832365,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ },
+ {
+  "ts": 1794957187.2836032,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(t1.loan_id) FROM svc_loans AS t1 INNER JOIN orig_applications AS t2 ON t1.app_id = t2.app_id WHERE t2.product = 'mortgage' AND t2.status = 'APPROVED BY EXCEPTION'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "llama3.1:8b"
+ }
+]

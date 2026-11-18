@@ -1,0 +1,100 @@
+[
+ {
+  "ts": 1794956851.3397844,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"How many mortgage loans came from applications submitted through the broker channel?\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956851.3397996,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "How many mortgage loans came from applications submitted through the broker channel?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956867.9872906,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "```json\n{\n  \"query\": \"SELECT COUNT(app_id) FROM orig_applications WHERE channel = 'B' AND product = 'mortgage'\",\n  \"note\": \"This query counts the number of mortgage loan applications that were submitted through the broker channel.\"\n}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956867.9875226,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) FROM orig_applications WHERE channel = 'B' AND product = 'mortgage'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956886.739501,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(app_id) AS mortgage_loans_from_broker FROM svc_loans WHERE product = 'mortgage' AND app_id IN (SELECT app_id FROM a2a_result_1)\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956886.7397408,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) AS mortgage_loans_from_broker FROM svc_loans WHERE product = 'mortgage' AND app_id IN (SELECT app_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956903.8328497,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(app_id) AS mortgage_loans_from_broker FROM svc_loans WHERE product = 'mortgage' AND app_id IN (SELECT app_id FROM a2a_result_1)\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956903.8329835,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(app_id) AS mortgage_loans_from_broker FROM svc_loans WHERE product = 'mortgage' AND app_id IN (SELECT app_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794971976.299167,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT product FROM svc_loans\"}\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971976.2994628,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT product FROM svc_loans",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971978.0357263,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT p.reversed, COUNT(*) AS n, ROUND(SUM(p.amount),2) AS total FROM svc_payments p JOIN svc_loans l ON l.loan_id = p.loan_id WHERE l.product = 'mortgage' GROUP BY p.reversed\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971978.0363085,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT p.reversed, COUNT(*) AS n, ROUND(SUM(p.amount),2) AS total FROM svc_payments p JOIN svc_loans l ON l.loan_id = p.loan_id WHERE l.product = 'mortgage' GROUP BY p.reversed",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971979.5020382,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(p.amount),2) AS total_mortgage_payments FROM svc_payments p JOIN svc_loans l ON l.loan_id = p.loan_id WHERE l.product = 'mortgage' AND p.reversed = 0\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971979.5025032,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(p.amount),2) AS total_mortgage_payments FROM svc_payments p JOIN svc_loans l ON l.loan_id = p.loan_id WHERE l.product = 'mortgage' AND p.reversed = 0",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

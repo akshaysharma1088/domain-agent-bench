@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972273.2645104,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/\n{\"action\":\"sql\",\"query\":\"SELECT product, COUNT(*) AS n, SUM(balance) AS bal FROM svc_loans GROUP BY product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972273.2650132,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT product, COUNT(*) AS n, SUM(balance) AS bal FROM svc_loans GROUP BY product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972274.764212,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT r.segment, COUNT(*) AS n, SUM(l.balance) AS bal FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' GROUP BY r.segment\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972274.7645955,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT r.segment, COUNT(*) AS n, SUM(l.balance) AS bal FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' GROUP BY r.segment",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972276.2259302,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(l.balance) AS total_outstanding_balance FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' AND r.segment IN ('H1', 'H2')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972276.22623,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(l.balance) AS total_outstanding_balance FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' AND r.segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

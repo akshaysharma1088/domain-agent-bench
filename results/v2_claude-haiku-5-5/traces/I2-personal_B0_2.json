@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972076.7053957,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT l.product, COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE lower(n.note) LIKE '%hardship%' GROUP BY l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972076.7056322,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product, COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE lower(n.note) LIKE '%hardship%' GROUP BY l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972078.4776156,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "The earlier query grouped by product, and personal loans came back with 26 distinct loans mentioning hardship. I'll submit a query that filters to personal loans directly.\n\n_submit\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND lower(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972078.4778311,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND lower(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972261.344516,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT l.product, a.channel, a.product AS app_product, COUNT(*) FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id GROUP BY l.product, a.channel, a.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972261.3451498,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product, a.channel, a.product AS app_product, COUNT(*) FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id GROUP BY l.product, a.channel, a.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972262.8838959,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "The join shows 82 auto loans whose originating application came through the broker channel (channel B), and the loan and application products match on every row. I'll submit the count as a single-value query.\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE l.product = 'auto' AND a.channel = 'B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972262.8841314,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE l.product = 'auto' AND a.channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

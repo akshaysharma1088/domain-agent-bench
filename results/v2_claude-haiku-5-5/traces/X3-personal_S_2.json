@@ -1,0 +1,100 @@
+[
+ {
+  "ts": 1794972547.7605782,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Which loan_ids are classified as high risk by Risk Analytics?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972547.760591,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Which loan_ids are classified as high risk by Risk Analytics?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972549.0922759,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "```json\n{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"High risk is defined by segment code: H1 and H2 are the HIGH risk segments. No on_book, forbearance, or delinquency filter is applied, so this returns all loans with a high-risk segment classification, including off-book and delinquent accounts. This is not the Risk Analytics 'active account' definition.\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972549.0924666,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972550.6029298,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT ROUND(SUM(l.balance), 2) AS total_outstanding_balance FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972550.6030989,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(l.balance), 2) AS total_outstanding_balance FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972552.6430175,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(l.balance), 2) AS total_outstanding_balance FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972552.6431153,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(l.balance), 2) AS total_outstanding_balance FROM svc_loans l JOIN a2a_result_1 r ON r.loan_id = l.loan_id WHERE l.product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

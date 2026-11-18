@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972281.161073,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql\n{\"action\":\"sql\",\"query\":\"SELECT o.uw_cd, o.product, o.status, COUNT(*) AS n, COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN orig_applications o ON o.app_id = l.app_id GROUP BY o.uw_cd, o.product, o.status\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972281.1620467,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT o.uw_cd, o.product, o.status, COUNT(*) AS n, COUNT(DISTINCT l.loan_id) AS loans FROM svc_loans l JOIN orig_applications o ON o.app_id = l.app_id GROUP BY o.uw_cd, o.product, o.status",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972282.9300547,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS personal_loans_approved_by_exception FROM svc_loans l JOIN orig_applications o ON o.app_id = l.app_id WHERE o.uw_cd = 'E' AND o.product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972282.93034,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS personal_loans_approved_by_exception FROM svc_loans l JOIN orig_applications o ON o.app_id = l.app_id WHERE o.uw_cd = 'E' AND o.product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

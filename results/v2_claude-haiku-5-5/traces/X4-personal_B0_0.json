@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972081.0471158,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT status, uw_cd, COUNT(*) FROM orig_applications GROUP BY status, uw_cd ORDER BY 3 DESC\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972081.0478559,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status, uw_cd, COUNT(*) FROM orig_applications GROUP BY status, uw_cd ORDER BY 3 DESC",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972082.9090335,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT a.status, a.uw_cd, COUNT(*) AS loans FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.uw_cd = 'E' GROUP BY a.status, a.uw_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972082.9093804,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT a.status, a.uw_cd, COUNT(*) AS loans FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.uw_cd = 'E' GROUP BY a.status, a.uw_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972091.402291,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.uw_cd = 'E' AND a.status = 'FUNDED'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972091.4025562,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product = 'personal' AND a.uw_cd = 'E' AND a.status = 'FUNDED'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

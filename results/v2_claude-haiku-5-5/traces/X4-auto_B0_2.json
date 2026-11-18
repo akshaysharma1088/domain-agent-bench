@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972048.4593885,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT status, uw_cd, COUNT(*) FROM orig_applications GROUP BY status, uw_cd ORDER BY 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972048.4600024,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status, uw_cd, COUNT(*) FROM orig_applications GROUP BY status, uw_cd ORDER BY 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972050.6795642,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT a.product, a.uw_cd, a.status, COUNT(*) AS n_loans FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id GROUP BY a.product, a.uw_cd, a.status ORDER BY 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972050.6801736,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT a.product, a.uw_cd, a.status, COUNT(*) AS n_loans FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id GROUP BY a.product, a.uw_cd, a.status ORDER BY 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972052.3271544,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE a.product = 'auto' AND a.uw_cd = 'E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972052.3274386,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE a.product = 'auto' AND a.uw_cd = 'E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

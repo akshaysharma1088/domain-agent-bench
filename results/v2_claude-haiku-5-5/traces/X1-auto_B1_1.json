@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972244.9287713,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT 'loan_product' AS k, product AS v, COUNT(*) AS n FROM svc_loans GROUP BY product UNION ALL SELECT 'app_channel', channel, COUNT(*) FROM orig_applications GROUP BY channel UNION ALL SELECT 'app_product', product, COUNT(*) FROM orig_applications GROUP BY product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972244.9299812,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT 'loan_product' AS k, product AS v, COUNT(*) AS n FROM svc_loans GROUP BY product UNION ALL SELECT 'app_channel', channel, COUNT(*) FROM orig_applications GROUP BY channel UNION ALL SELECT 'app_product', product, COUNT(*) FROM orig_applications GROUP BY product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972246.392797,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE l.product = 'auto' AND a.channel = 'B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972246.3931034,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE l.product = 'auto' AND a.channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

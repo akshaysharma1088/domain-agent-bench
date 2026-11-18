@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972565.1864853,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<invoke/tool>\n\n\n<inv"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972566.7005832,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS cnt FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972566.700803,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS cnt FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972567.988245,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS cnt FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972567.9883783,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS cnt FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

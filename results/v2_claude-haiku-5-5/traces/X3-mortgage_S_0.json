@@ -1,0 +1,148 @@
+[
+ {
+  "ts": 1794972503.2453318,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/\n{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Which loans are classified as high risk? Return the loan_id values for loans Risk Analytics classifies as high risk.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972503.2453463,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Which loans are classified as high risk? Return the loan_id values for loans Risk Analytics classifies as high risk.",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972504.7066767,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"High risk is defined by segment code: H1 and H2 are HIGH risk. This applies the segment classification only, with no filter on on_book, forbearance_flag, or days_past_due, so it includes off-book accounts and accounts in forbearance or 30+ days past due that carry an H1/H2 segment. It does not use the narrower Risk Analytics 'active account' definition.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972504.7069697,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972507.0159698,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT product, COUNT(*) AS n, SUM(balance) AS total_balance FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_1) GROUP BY product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972507.0162108,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT product, COUNT(*) AS n, SUM(balance) AS total_balance FROM svc_loans WHERE loan_id IN (SELECT loan_id FROM a2a_result_1) GROUP BY product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972508.81348,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What is Risk Analytics' official definition of a high risk loan? Does it depend on on_book, forbearance, or days_past_due, and what is the 'active account' definition?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972508.8134966,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What is Risk Analytics' official definition of a high risk loan? Does it depend on on_book, forbearance, or days_past_due, and what is the 'active account' definition?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972510.9845338,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "explain",
+   "raw": "{\"answer\": \"In Risk Analytics, a high risk loan is one whose segment is H1 or H2; the glossary does not tie this definition to on_book, forbearance_flag, or days_past_due, so those fields don't determine it. An ACTIVE ACCOUNT in Risk is a loan with on_book = 1, forbearance_flag = 0, and days_past_due under 30, which is narrower than the Servicing meaning of active.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972512.9398854,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "\"action\":\"submit\",\"query\":\"SELECT SUM(balance) AS total_balance FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972514.557338,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(balance) AS total_balance FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972514.557557,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(balance) AS total_balance FROM svc_loans WHERE product = 'mortgage' AND loan_id IN (SELECT loan_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

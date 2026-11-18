@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794971952.8081338,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT product, status_cd, COUNT(*), SUM(balance) FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971952.8086178,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT product, status_cd, COUNT(*), SUM(balance) FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971955.4699435,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT l.status_cd, r.on_book, r.forbearance_flag, COUNT(*), SUM(l.balance) FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' GROUP BY l.status_cd, r.on_book, r.forbearance_flag ORDER BY 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971955.4702778,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.status_cd, r.on_book, r.forbearance_flag, COUNT(*), SUM(l.balance) FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' GROUP BY l.status_cd, r.on_book, r.forbearance_flag ORDER BY 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971957.5932672,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "\"submit\" with the query:\n\n{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(l.balance), 2) AS total_active_mortgage_balance FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' AND r.on_book = 1 AND l.status_cd IN ('C','D','F')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971957.5935574,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(l.balance), 2) AS total_active_mortgage_balance FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'mortgage' AND r.on_book = 1 AND l.status_cd IN ('C','D','F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

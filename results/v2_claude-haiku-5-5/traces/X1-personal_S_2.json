@@ -1,0 +1,100 @@
+[
+ {
+  "ts": 1794972494.1953008,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"Return the app_id values for applications submitted through the broker channel.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972494.195317,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "Return the app_id values for applications submitted through the broker channel.",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972495.1265275,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT app_id FROM orig_applications WHERE channel = 'B'\", \"note\": \"Broker channel is channel code 'B' (D=direct, B=broker, P=partner). No status filter is applied, so applications of every status are included. The query returns only the app_id column, and no applicant PII is read.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972495.1268325,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972496.5770488,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "_sql_check\n\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) AS personal_broker_loans FROM svc_loans l WHERE l.product = 'personal' AND l.app_id IN (SELECT app_id FROM a2a_result_1);\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972496.5772848,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS personal_broker_loans FROM svc_loans l WHERE l.product = 'personal' AND l.app_id IN (SELECT app_id FROM a2a_result_1);",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972498.0710993,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) AS personal_broker_loans FROM svc_loans l WHERE l.product = 'personal' AND l.app_id IN (SELECT app_id FROM a2a_result_1);\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972498.0712621,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS personal_broker_loans FROM svc_loans l WHERE l.product = 'personal' AND l.app_id IN (SELECT app_id FROM a2a_result_1);",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

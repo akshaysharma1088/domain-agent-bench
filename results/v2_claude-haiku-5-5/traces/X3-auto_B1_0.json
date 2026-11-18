@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972266.712645,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke:\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT l.product, r.segment, typeof(l.balance) FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id ORDER BY 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972266.7131693,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT l.product, r.segment, typeof(l.balance) FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id ORDER BY 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972268.5294256,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(l.balance), 2) AS total_outstanding_balance FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'auto' AND r.segment IN ('H1', 'H2')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972268.5297077,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(l.balance), 2) AS total_outstanding_balance FROM svc_loans l JOIN risk_accounts r ON r.loan_id = l.loan_id WHERE l.product = 'auto' AND r.segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

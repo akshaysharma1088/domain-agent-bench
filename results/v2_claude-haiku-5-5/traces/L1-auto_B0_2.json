@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794971945.9960144,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT status_cd, product, COUNT(*), SUM(balance) FROM svc_loans GROUP BY status_cd, product ORDER BY status_cd, product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971945.9964867,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status_cd, product, COUNT(*), SUM(balance) FROM svc_loans GROUP BY status_cd, product ORDER BY status_cd, product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971948.3370771,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(balance), 2) AS total_active_auto_balance FROM svc_loans WHERE product = 'auto' AND status_cd = 'C'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971948.3372562,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(balance), 2) AS total_active_auto_balance FROM svc_loans WHERE product = 'auto' AND status_cd = 'C'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

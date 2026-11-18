@@ -1,0 +1,61 @@
+[
+ {
+  "ts": 1794972160.6386533,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n\n<br>\n\n"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972163.745526,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972163.745732,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972167.1163268,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(TRIM(l.product)) = 'personal' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972167.1165612,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT n.loan_id) FROM svc_loan_notes n JOIN svc_loans l ON l.loan_id = n.loan_id WHERE LOWER(TRIM(l.product)) = 'personal' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

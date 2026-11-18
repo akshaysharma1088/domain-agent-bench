@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794953451.19652,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) FROM svc_loans AS l JOIN orig_applications AS a ON l.app_id = a.app_id WHERE l.product = 'personal' AND a.status = 'APPROVED_BY_EXCEPTION';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953451.1968112,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans AS l JOIN orig_applications AS a ON l.app_id = a.app_id WHERE l.product = 'personal' AND a.status = 'APPROVED_BY_EXCEPTION';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953458.2695699,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) FROM svc_loans AS l JOIN orig_applications AS a ON l.app_id = a.app_id WHERE l.product = 'personal' AND a.status = 'APPROVED_BY_EXCEPTION';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794953458.26973,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) FROM svc_loans AS l JOIN orig_applications AS a ON l.app_id = a.app_id WHERE l.product = 'personal' AND a.status = 'APPROVED_BY_EXCEPTION';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972589.203825,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke_sql_placeholder>\n</invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<invoke_sql_placeholder>\n\n\n<inv"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972590.8901374,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS auto_hardship_loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972590.890338,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS auto_hardship_loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972592.3039198,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT DISTINCT product, LENGTH(product) AS len FROM svc_loans\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972592.3041754,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT product, LENGTH(product) AS len FROM svc_loans",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972593.66667,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS auto_hardship_loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972593.6668658,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS auto_hardship_loans FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'auto' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

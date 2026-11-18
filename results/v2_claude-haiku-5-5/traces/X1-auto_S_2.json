@@ -1,0 +1,100 @@
+[
+ {
+  "ts": 1794972488.3430822,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"originations\",\"request_type\":\"select_ids\",\"question\":\"Return app_id values for applications submitted through the broker channel.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972488.3430994,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "originations",
+   "request_type": "select_ids",
+   "question": "Return app_id values for applications submitted through the broker channel.",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972489.6731894,
+  "principal": "originations",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "```json\n{\"query\": \"SELECT app_id FROM orig_applications WHERE channel = 'B'\", \"note\": \"Channel code B (broker) per the originations glossary. No status filter applied, so applications in every status are included (SUBMITTED, IN_REVIEW, APPROVED, FUNDED, DECLINED, WITHDRAWN, etc.).\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972489.6734827,
+  "principal": "originations",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT app_id FROM orig_applications WHERE channel = 'B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972491.8656657,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke_result>\n{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) AS auto_broker_loans, COUNT(DISTINCT l.loan_id) AS distinct_loans, COUNT(DISTINCT l.app_id) AS distinct_apps FROM svc_loans l WHERE LOWER(TRIM(l.product)) = 'auto' AND l.app_id IN (SELECT app_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972491.866061,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS auto_broker_loans, COUNT(DISTINCT l.loan_id) AS distinct_loans, COUNT(DISTINCT l.app_id) AS distinct_apps FROM svc_loans l WHERE LOWER(TRIM(l.product)) = 'auto' AND l.app_id IN (SELECT app_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972493.2078161,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) AS auto_broker_loans FROM svc_loans l WHERE LOWER(TRIM(l.product)) = 'auto' AND l.app_id IN (SELECT app_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972493.2081628,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS auto_broker_loans FROM svc_loans l WHERE LOWER(TRIM(l.product)) = 'auto' AND l.app_id IN (SELECT app_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

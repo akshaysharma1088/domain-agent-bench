@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972215.8011131,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT product, status_cd, COUNT(*), SUM(balance) FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972215.8017623,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT product, status_cd, COUNT(*), SUM(balance) FROM svc_loans GROUP BY product, status_cd ORDER BY product, status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972217.4182405,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<parameter_type>\nSELECT ROUND(SUM(balance), 2) AS active_auto_outstanding_balance FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')\n</parameter_type>\n\n\n<parameter_type>\n{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(balance), 2) AS active_auto_outstanding_balance FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')\"}\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972217.4184988,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(balance), 2) AS active_auto_outstanding_balance FROM svc_loans WHERE product = 'auto' AND status_cd IN ('C', 'D', 'F')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

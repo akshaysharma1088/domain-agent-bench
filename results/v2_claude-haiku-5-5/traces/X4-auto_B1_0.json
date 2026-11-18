@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972277.760332,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT l.product AS loan_product, a.product AS app_product, a.uw_cd, COUNT(*) AS n FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id GROUP BY l.product, a.product, a.uw_cd ORDER BY 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972277.7611566,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product AS loan_product, a.product AS app_product, a.uw_cd, COUNT(*) AS n FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id GROUP BY l.product, a.product, a.uw_cd ORDER BY 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972279.6385221,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "**Result:** 16 auto loans came from applications with uw_cd = 'E' (approved by exception). Loan product and application product agree in every row, so filtering on either gives the same count.\n\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS auto_loans_approved_by_exception FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE l.product = 'auto' AND a.uw_cd = 'E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972279.6388202,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS auto_loans_approved_by_exception FROM svc_loans l JOIN orig_applications a ON l.app_id = a.app_id WHERE l.product = 'auto' AND a.uw_cd = 'E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

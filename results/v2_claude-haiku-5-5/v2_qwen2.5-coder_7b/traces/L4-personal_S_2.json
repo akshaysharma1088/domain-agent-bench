@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794956666.1586757,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"sql\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956666.159014,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956683.3663466,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "```json\n{\"action\":\"submit\",\"query\":\"SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal';\"}\n```"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ },
+ {
+  "ts": 1794956683.3665907,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(days_past_due), 2) AS avg_days_past_due FROM svc_loans WHERE status_cd IN ('C', 'D', 'F') AND product = 'personal';",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "qwen2.5-coder:7b"
+ }
+]

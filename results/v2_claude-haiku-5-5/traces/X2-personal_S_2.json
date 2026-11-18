@@ -1,0 +1,137 @@
+[
+ {
+  "ts": 1794972516.651009,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"explain\",\"question\":\"What is the Risk Analytics definition of an active loan?\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972516.6510227,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "explain",
+   "question": "What is the Risk Analytics definition of an active loan?",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972517.3424659,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "explain",
+   "raw": "{\"answer\": \"In Risk Analytics, an active account is one that is on the books (on_book = 1), not in forbearance (forbearance_flag = 0), and less than 30 days past due. This is narrower than the Servicing meaning of active.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972518.7585287,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Return the loan_id values for loans that are active under the Risk Analytics definition (on_book = 1, forbearance_flag = 0, less than 30 days past due). Restrict to personal loans if you can.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972518.7585428,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Return the loan_id values for loans that are active under the Risk Analytics definition (on_book = 1, forbearance_flag = 0, less than 30 days past due). Restrict to personal loans if you can.",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972520.4232934,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30\", \"note\": \"Applied the Risk Analytics definition of active: on_book = 1, forbearance_flag = 0, and days_past_due < 30. The personal-loan restriction was not applied because risk_accounts has no product-type column, so the query returns all loan types. Filtering to personal loans would require a product attribute from the servicing side, joined on loan_id.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972520.4235833,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE on_book = 1 AND forbearance_flag = 0 AND days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972522.9049234,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(DISTINCT s.loan_id) AS personal_active_loans, COUNT(*) AS joined_rows FROM svc_loans s JOIN a2a_result_1 r ON s.loan_id = r.loan_id WHERE s.product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972522.90515,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT s.loan_id) AS personal_active_loans, COUNT(*) AS joined_rows FROM svc_loans s JOIN a2a_result_1 r ON s.loan_id = r.loan_id WHERE s.product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972524.399081,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT s.loan_id) AS personal_active_loans FROM svc_loans s JOIN a2a_result_1 r ON s.loan_id = r.loan_id WHERE s.product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972524.3993034,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT s.loan_id) AS personal_active_loans FROM svc_loans s JOIN a2a_result_1 r ON s.loan_id = r.loan_id WHERE s.product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

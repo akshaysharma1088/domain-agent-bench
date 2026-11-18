@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794971996.7435148,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT status_cd, product, COUNT(*), AVG(days_past_due) FROM svc_loans GROUP BY status_cd, product ORDER BY 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971996.7440257,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status_cd, product, COUNT(*), AVG(days_past_due) FROM svc_loans GROUP BY status_cd, product ORDER BY 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971998.9773233,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "Status codes here are C, D, F, P, and X, with no \"active\" code, so I need another signal for active. I'll check whether `risk_accounts.on_book` lines up with the loan statuses.\n\n{\"action\":\"sql\",\"query\":\"SELECT s.status_cd, r.on_book, COUNT(*), AVG(s.days_past_due) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' GROUP BY s.status_cd, r.on_book ORDER BY 1,2\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794971998.977634,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT s.status_cd, r.on_book, COUNT(*), AVG(s.days_past_due) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' GROUP BY s.status_cd, r.on_book ORDER BY 1,2",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972002.3815582,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(AVG(s.days_past_due), 2) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' AND r.on_book = 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972002.3817835,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(AVG(s.days_past_due), 2) FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'mortgage' AND r.on_book = 1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972272.9732416,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke_sql\n{\"action\":\"sql\",\"query\":\"SELECT l.product, r.on_book, r.forbearance_flag, COUNT(*) AS n, SUM(CASE WHEN r.days_past_due < 30 THEN 1 ELSE 0 END) AS dpd_lt30 FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id GROUP BY l.product, r.on_book, r.forbearance_flag\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972272.9737737,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT l.product, r.on_book, r.forbearance_flag, COUNT(*) AS n, SUM(CASE WHEN r.days_past_due < 30 THEN 1 ELSE 0 END) AS dpd_lt30 FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id GROUP BY l.product, r.on_book, r.forbearance_flag",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972274.2354987,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) AS active_personal_risk_accounts FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id WHERE l.product = 'personal' AND r.on_book = 1 AND r.forbearance_flag = 0 AND r.days_past_due < 30\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972274.2357569,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS active_personal_risk_accounts FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id WHERE l.product = 'personal' AND r.on_book = 1 AND r.forbearance_flag = 0 AND r.days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

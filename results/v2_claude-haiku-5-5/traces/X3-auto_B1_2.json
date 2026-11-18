@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972279.7354429,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<parameter_check>\n{\"action\":\"sql\",\"query\":\"SELECT (SELECT group_concat(DISTINCT product) FROM svc_loans) AS products, (SELECT group_concat(DISTINCT segment) FROM risk_accounts) AS segs, (SELECT COUNT(*) FROM risk_accounts) AS ra_rows, (SELECT COUNT(DISTINCT loan_id) FROM risk_accounts) AS ra_distinct, (SELECT COUNT(*) FROM svc_loans) AS loans\"}\n</parameter_check>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972279.7358274,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT (SELECT group_concat(DISTINCT product) FROM svc_loans) AS products, (SELECT group_concat(DISTINCT segment) FROM risk_accounts) AS segs, (SELECT COUNT(*) FROM risk_accounts) AS ra_rows, (SELECT COUNT(DISTINCT loan_id) FROM risk_accounts) AS ra_distinct, (SELECT COUNT(*) FROM svc_loans) AS loans",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972281.917886,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(s.balance), 2) AS total_outstanding_balance FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'auto' AND r.segment IN ('H1', 'H2')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972281.9181147,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(s.balance), 2) AS total_outstanding_balance FROM svc_loans s JOIN risk_accounts r ON r.loan_id = s.loan_id WHERE s.product = 'auto' AND r.segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

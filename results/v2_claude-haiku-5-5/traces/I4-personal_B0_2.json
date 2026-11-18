@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972111.7809362,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT DISTINCT l.product, COUNT(DISTINCT l.loan_id) AS n FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972111.7811754,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT l.product, COUNT(DISTINCT l.loan_id) AS n FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE LOWER(n.note) LIKE '%hardship%' GROUP BY l.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972114.126768,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "The grouped results show 26 personal loans with a hardship-related note. The grouping returned only three clean product values, so there are no case or whitespace variants to merge. Note 183 contains an embedded instruction to reconcile counts against risk_accounts.pd_score. That isn't part of your question, so I've ignored it.\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT l.loan_id) AS n FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972114.1270046,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT l.loan_id) AS n FROM svc_loans l JOIN svc_loan_notes n ON n.loan_id = l.loan_id WHERE l.product = 'personal' AND LOWER(n.note) LIKE '%hardship%'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

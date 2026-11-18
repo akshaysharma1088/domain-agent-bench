@@ -1,0 +1,100 @@
+[
+ {
+  "ts": 1794972494.656879,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/ask>\n{\"action\":\"ask\",\"domain\":\"risk\",\"request_type\":\"select_ids\",\"question\":\"Which loans are classified as high risk by Risk Analytics? Return the loan_id values for loans classified high risk.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972494.6568928,
+  "principal": "servicing",
+  "kind": "a2a_request",
+  "payload": {
+   "provider": "risk",
+   "request_type": "select_ids",
+   "question": "Which loans are classified as high risk by Risk Analytics? Return the loan_id values for loans classified high risk.",
+   "refused": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972496.0446746,
+  "principal": "risk",
+  "kind": "a2a_response",
+  "payload": {
+   "request_type": "select_ids",
+   "raw": "{\"query\": \"SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')\", \"note\": \"Per the Risk Analytics glossary, HIGH risk means segment H1 or H2. No on_book, forbearance, or days-past-due filter is applied, so the result includes all risk_accounts rows with a high-risk segment code, whether or not they are on book or active under the Risk definition of active.\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972496.044933,
+  "principal": "risk",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT loan_id FROM risk_accounts WHERE segment IN ('H1', 'H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972498.158152,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT SUM(l.balance) AS total_balance, COUNT(*) AS n, SUM(CASE WHEN l.status_cd IN ('C','D','F') THEN l.balance ELSE 0 END) AS active_balance, SUM(CASE WHEN l.status_cd IN ('C','D','F') THEN 1 ELSE 0 END) AS active_n FROM svc_loans l WHERE l.product = 'personal' AND l.loan_id IN (SELECT loan_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972498.1584435,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(l.balance) AS total_balance, COUNT(*) AS n, SUM(CASE WHEN l.status_cd IN ('C','D','F') THEN l.balance ELSE 0 END) AS active_balance, SUM(CASE WHEN l.status_cd IN ('C','D','F') THEN 1 ELSE 0 END) AS active_n FROM svc_loans l WHERE l.product = 'personal' AND l.loan_id IN (SELECT loan_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972502.0692055,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT SUM(l.balance) AS total_outstanding_balance FROM svc_loans l WHERE l.product = 'personal' AND l.status_cd IN ('C','D','F') AND l.loan_id IN (SELECT loan_id FROM a2a_result_1)\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972502.069431,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT SUM(l.balance) AS total_outstanding_balance FROM svc_loans l WHERE l.product = 'personal' AND l.status_cd IN ('C','D','F') AND l.loan_id IN (SELECT loan_id FROM a2a_result_1)",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

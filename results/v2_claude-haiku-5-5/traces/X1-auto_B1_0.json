@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972245.2812104,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT (SELECT group_concat(DISTINCT product) FROM svc_loans) AS loan_products, (SELECT group_concat(DISTINCT channel) FROM orig_applications) AS channels, (SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product='auto' AND a.channel='B') AS cnt\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972245.2817416,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT (SELECT group_concat(DISTINCT product) FROM svc_loans) AS loan_products, (SELECT group_concat(DISTINCT channel) FROM orig_applications) AS channels, (SELECT COUNT(*) FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product='auto' AND a.channel='B') AS cnt",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972246.5832853,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) AS cnt FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product='auto' AND a.channel='B'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972246.5835934,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS cnt FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE l.product='auto' AND a.channel='B'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

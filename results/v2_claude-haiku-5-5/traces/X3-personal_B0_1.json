@@ -1,0 +1,74 @@
+[
+ {
+  "ts": 1794972048.734912,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/>\n{\"action\":\"sql\",\"query\":\"SELECT r.segment, s.product, COUNT(*) AS n, SUM(s.balance) AS total_bal, MIN(r.pd_score), MAX(r.pd_score) FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id GROUP BY r.segment, s.product ORDER BY r.segment, s.product\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972048.7359445,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT r.segment, s.product, COUNT(*) AS n, SUM(s.balance) AS total_bal, MIN(r.pd_score), MAX(r.pd_score) FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id GROUP BY r.segment, s.product ORDER BY r.segment, s.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972051.4164443,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT COUNT(*) AS n_rows, COUNT(DISTINCT r.loan_id) AS n_loans, SUM(CASE WHEN r.segment IN ('H1','H2') AND s.product='personal' THEN s.balance ELSE 0 END) AS hi_personal_bal, SUM(CASE WHEN r.segment IN ('H1','H2') AND s.product='personal' AND r.on_book=1 THEN s.balance ELSE 0 END) AS hi_personal_onbook_bal, COUNT(s.loan_id) AS matched FROM risk_accounts r LEFT JOIN svc_loans s ON s.loan_id = r.loan_id\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972051.4170835,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS n_rows, COUNT(DISTINCT r.loan_id) AS n_loans, SUM(CASE WHEN r.segment IN ('H1','H2') AND s.product='personal' THEN s.balance ELSE 0 END) AS hi_personal_bal, SUM(CASE WHEN r.segment IN ('H1','H2') AND s.product='personal' AND r.on_book=1 THEN s.balance ELSE 0 END) AS hi_personal_onbook_bal, COUNT(s.loan_id) AS matched FROM risk_accounts r LEFT JOIN svc_loans s ON s.loan_id = r.loan_id",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972053.252947,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(s.balance), 2) AS hi_risk_personal_outstanding_balance FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE r.segment IN ('H1','H2') AND s.product = 'personal'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972053.2532542,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(s.balance), 2) AS hi_risk_personal_outstanding_balance FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE r.segment IN ('H1','H2') AND s.product = 'personal'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

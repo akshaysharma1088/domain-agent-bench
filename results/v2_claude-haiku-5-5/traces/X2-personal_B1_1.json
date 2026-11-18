@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972258.528122,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT DISTINCT l.product, r.on_book, r.forbearance_flag, typeof(r.days_past_due) AS t, COUNT(*) AS n FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id GROUP BY l.product, r.on_book, r.forbearance_flag, t ORDER BY 1,2,3\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972258.5291464,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT DISTINCT l.product, r.on_book, r.forbearance_flag, typeof(r.days_past_due) AS t, COUNT(*) AS n FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id GROUP BY l.product, r.on_book, r.forbearance_flag, t ORDER BY 1,2,3",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972260.2496972,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(DISTINCT r.loan_id) AS active_risk_personal_loans FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id WHERE l.product = 'personal' AND r.on_book = 1 AND r.forbearance_flag = 0 AND r.days_past_due < 30\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972260.2500794,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(DISTINCT r.loan_id) AS active_risk_personal_loans FROM risk_accounts r JOIN svc_loans l ON l.loan_id = r.loan_id WHERE l.product = 'personal' AND r.on_book = 1 AND r.forbearance_flag = 0 AND r.days_past_due < 30",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

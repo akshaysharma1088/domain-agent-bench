@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972045.0306022,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT r.segment, s.product, COUNT(*), ROUND(SUM(s.balance),2) FROM risk_accounts r JOIN svc_loans s ON s.loan_id=r.loan_id GROUP BY r.segment, s.product\"}\n</invoke>"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972045.0315738,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT r.segment, s.product, COUNT(*), ROUND(SUM(s.balance),2) FROM risk_accounts r JOIN svc_loans s ON s.loan_id=r.loan_id GROUP BY r.segment, s.product",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972047.339935,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT ROUND(SUM(s.balance),2) AS total_auto_high_risk_balance FROM svc_loans s JOIN risk_accounts r ON s.loan_id = r.loan_id WHERE s.product = 'auto' AND r.segment IN ('H1','H2')\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972047.3403244,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT ROUND(SUM(s.balance),2) AS total_auto_high_risk_balance FROM svc_loans s JOIN risk_accounts r ON s.loan_id = r.loan_id WHERE s.product = 'auto' AND r.segment IN ('H1','H2')",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

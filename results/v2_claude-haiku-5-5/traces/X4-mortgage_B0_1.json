@@ -1,0 +1,85 @@
+[
+ {
+  "ts": 1794972073.3427243,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<invoke/sql>\n{\"action\":\"sql\",\"query\":\"SELECT status, uw_cd, COUNT(*) FROM orig_applications WHERE product LIKE '%mortgage%' GROUP BY status, uw_cd\"}\n</invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n<invoke>\n\n"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972073.343357,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT status, uw_cd, COUNT(*) FROM orig_applications WHERE product LIKE '%mortgage%' GROUP BY status, uw_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972090.3159056,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "The status/uw_cd breakdown suggests `uw_cd = 'E'` marks exception approvals, and loans only exist for funded applications. I'll check the count of mortgage loans linked to E-coded applications before submitting.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972092.2623088,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"sql\",\"query\":\"SELECT a.status, a.uw_cd, COUNT(l.loan_id) AS loans FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE a.product LIKE '%mortgage%' AND a.uw_cd = 'E' GROUP BY a.status, a.uw_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972092.2628245,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT a.status, a.uw_cd, COUNT(l.loan_id) AS loans FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE a.product LIKE '%mortgage%' AND a.uw_cd = 'E' GROUP BY a.status, a.uw_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972094.3243103,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "I'm submitting the count of mortgage loans whose originating application has underwriting code 'E'. The join returned only FUNDED applications, so this is 28 either way, since the one APPROVED 'E' application has no loan.\n\n\n\n{\"action\":\"submit\",\"query\":\"SELECT COUNT(l.loan_id) AS loans FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE a.product LIKE '%mortgage%' AND a.uw_cd = 'E'\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972094.3247194,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(l.loan_id) AS loans FROM svc_loans l JOIN orig_applications a ON a.app_id = l.app_id WHERE a.product LIKE '%mortgage%' AND a.uw_cd = 'E'",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]

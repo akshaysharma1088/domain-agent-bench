@@ -1,0 +1,50 @@
+[
+ {
+  "ts": 1794972027.6123848,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "<parameter_type>none</parameter_type>\n<parameter_type>sql</parameter_type>\n\n\n<parameter_type>none</parameter_type>\n{\"action\":\"sql\",\"query\":\"SELECT r.on_book, s.status_cd, COUNT(*) AS n FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'mortgage' GROUP BY r.on_book, s.status_cd\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972027.6127002,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT r.on_book, s.status_cd, COUNT(*) AS n FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'mortgage' GROUP BY r.on_book, s.status_cd",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972029.2154095,
+  "principal": "servicing",
+  "kind": "llm",
+  "payload": {
+   "raw": "{\"action\":\"submit\",\"query\":\"SELECT COUNT(*) AS active_mortgage_loans FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'mortgage' AND r.on_book = 1\"}"
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ },
+ {
+  "ts": 1794972029.2156255,
+  "principal": "servicing",
+  "kind": "sql",
+  "payload": {
+   "query": "SELECT COUNT(*) AS active_mortgage_loans FROM risk_accounts r JOIN svc_loans s ON s.loan_id = r.loan_id WHERE s.product = 'mortgage' AND r.on_book = 1",
+   "ok": true,
+   "error": null
+  },
+  "charter_version": "1.0",
+  "pack_version": "1.0",
+  "model": "claude-haiku-5-5"
+ }
+]
