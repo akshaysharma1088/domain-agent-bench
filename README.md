@@ -4,6 +4,8 @@ A small, reproducible benchmark that compares three ways of placing an LLM agent
 domain-driven data platform. It is the evaluation artifact for the paper
 "Agent-Oriented Reference Architecture for Domain-Driven Enterprise Data Platforms".
 
+Archived on Zenodo: https://doi.org/10.5281/zenodo.24330340
+
 | Config | Credential | Context | Cross-domain work |
 |---|---|---|---|
 | B0 | one broad credential over every table | none | direct reads |
