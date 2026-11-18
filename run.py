@@ -10,13 +10,13 @@ import os
 
 from meshbench import data
 from meshbench.agent import CONFIGS, run_task
-from meshbench.llm import Mock, OpenAICompat
+from meshbench.llm import Anthropic, Mock, OpenAICompat
 from meshbench.tasks import all_tasks
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--backend", choices=["mock", "openai"], required=True)
+    ap.add_argument("--backend", choices=["mock", "openai", "anthropic"], required=True)
     ap.add_argument("--model", default="mock-scripted")
     ap.add_argument("--base-url", default=None)
     ap.add_argument("--configs", default=",".join(CONFIGS))
@@ -29,7 +29,8 @@ def main():
     ap.add_argument("--traces", action="store_true", help="also write one trace file per run")
     args = ap.parse_args()
 
-    llm = Mock() if args.backend == "mock" else OpenAICompat(args.model, args.base_url)
+    llm = (Mock() if args.backend == "mock" else Anthropic(args.model) if args.backend == "anthropic"
+           else OpenAICompat(args.model, args.base_url))
     out = args.out or os.path.join("results", "smoke" if args.backend == "mock" else llm.model.replace("/", "_").replace(":", "_"))
     os.makedirs(out, exist_ok=True)
     path = os.path.join(out, "runs.jsonl")
@@ -65,6 +66,10 @@ def main():
                     f.flush()
                     print(f"[{i}/{total}] {task['id']:14s} {cfg:2s} correct={r['correct']} "
                           f"calls={r['llm_calls']} denied={r['denied_tables']}")
+    if getattr(llm, "resolved", None):
+        with open(os.path.join(out, "model-info.txt"), "w") as mf:
+            mf.write(f"requested: {llm.model}\nresolved: {llm.resolved}\n"
+                     f"temperature sent: {llm.send_temperature}\n")
     print(f"\nwrote {path}\nnext: python summarize.py {path}")
 
 

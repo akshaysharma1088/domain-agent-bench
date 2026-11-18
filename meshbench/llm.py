@@ -45,6 +45,55 @@ class OpenAICompat:
         raise RuntimeError(f"model call failed after retries: {last}")
 
 
+class Anthropic:
+    """Anthropic Messages API. The key is read from ANTHROPIC_API_KEY and never logged."""
+    name = "anthropic"
+
+    def __init__(self, model, timeout=180):
+        self.model = model
+        self.api_key = os.environ["ANTHROPIC_API_KEY"]
+        self.timeout = timeout
+        self.resolved = None          # exact model version reported by the API
+        self.send_temperature = True
+
+    def set_context(self, **_):
+        pass
+
+    def chat(self, messages, temperature=0.0):
+        system = "\n\n".join(m["content"] for m in messages if m["role"] == "system")
+        turns = [m for m in messages if m["role"] != "system"]
+        last = None
+        for attempt in range(6):
+            body = {"model": self.model, "max_tokens": 1024, "system": system, "messages": turns}
+            if self.send_temperature:
+                body["temperature"] = temperature
+            req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=json.dumps(body).encode(),
+                                         headers={"content-type": "application/json", "x-api-key": self.api_key,
+                                                  "anthropic-version": "2023-06-01"})
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    data = json.load(resp)
+                self.resolved = data.get("model", self.resolved)
+                text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
+                u = data.get("usage") or {}
+                return text, {"prompt_tokens": u.get("input_tokens", 0) + u.get("cache_read_input_tokens", 0)
+                              + u.get("cache_creation_input_tokens", 0),
+                              "completion_tokens": u.get("output_tokens", 0), "estimated": False}
+            except urllib.error.HTTPError as exc:
+                detail = exc.read().decode("utf-8", "replace")[:300]
+                last = f"HTTP {exc.code}: {detail}"
+                if exc.code == 400 and "temperature" in detail and self.send_temperature:
+                    self.send_temperature = False     # model does not accept the parameter; note it in the paper
+                    continue
+                if exc.code in (400, 401, 403, 404):
+                    break
+                time.sleep(min(60, 3 * 2 ** attempt))
+            except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+                last = str(exc)
+                time.sleep(min(60, 3 * 2 ** attempt))
+        raise RuntimeError(f"model call failed: {last}")
+
+
 class Mock:
     """Scripted stand-in used for smoke tests of the harness. Not a model."""
     name = "mock"

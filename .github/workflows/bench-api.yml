@@ -1,0 +1,70 @@
+name: bench-api
+
+# Runs the benchmark against a hosted Anthropic model.
+# Needs a repository secret named ANTHROPIC_API_KEY (Settings -> Secrets and variables -> Actions).
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Anthropic model id"
+        default: "claude-haiku-5-5"
+      temperature:
+        description: "Sampling temperature"
+        default: "0.2"
+      tasks:
+        description: "Optional task filter (empty = all 48 tasks)"
+        default: ""
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        config: [B0, B1, S]
+        repeat: [0, 1, 2]
+    env:
+      MODEL: ${{ inputs.model }}
+      TEMPERATURE: ${{ inputs.temperature }}
+      TASKS: ${{ inputs.tasks }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run
+        run: |
+          test -n "$ANTHROPIC_API_KEY" || { echo "Repository secret ANTHROPIC_API_KEY is not set"; exit 1; }
+          python run.py --backend anthropic --model "$MODEL" --temperature "$TEMPERATURE" \
+            --configs "${{ matrix.config }}" --repeat-id "${{ matrix.repeat }}" --tasks "$TASKS" --traces --out out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: part-${{ matrix.config }}-${{ matrix.repeat }}
+          path: out
+
+  summarize:
+    needs: run
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: parts
+          pattern: part-*
+      - name: Merge and summarize
+        run: |
+          mkdir -p results
+          cat parts/*/runs.jsonl > results/runs.jsonl
+          mkdir -p results/traces && cp parts/*/traces/*.json results/traces/ || true
+          cp "$(ls parts/*/model-info.txt | head -1)" results/ || true
+          python summarize.py results/runs.jsonl | tee results/summary.md
+          cat results/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: results
